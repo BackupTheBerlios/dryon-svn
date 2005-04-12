@@ -1,0 +1,76 @@
+native debugPrint(const format[], ...);
+native irc_getBotNick(dest[], dest_maxsize= sizeof dest);
+native irc_action(const chan[], const str[], ...);
+native irc_ban(const chan[], const banmask[]);
+native irc_changeNick(const nick[]);
+native bool:irc_getAccount(const nick[], acct[], acct_maxsize= sizeof acct);
+native irc_getChanKey(const channel[], pass[], pass_maxsize= sizeof pass);
+native irc_getTopic(const chan[], topic[], topic_maxsize= sizeof topic);
+native irc_getauth(const nick[], auth[], auth_maxsize= sizeof auth);
+native bool:irc_isBanned(const what[], const channel[]);
+native bool:irc_isChanName(const channel[]);
+native bool:irc_isInBanList(const banmask[], const channel[]);
+native bool:irc_isbotopped(const chan[]);
+native bool:irc_isop(const nick[], const chan[]);
+native bool:irc_isvoice(const nick[], const chan[]);
+native irc_join(const channel[], const pass[]= "");
+native irc_kick(const chan[], const user[], const message[]="");
+native irc_notice(const nick[], const txt[], ...);
+native irc_part(const channel[]);
+native irc_privmsg(const nick[], const txt[], ...);
+native irc_quit(const msg[]= "");
+native irc_say(const chan[], const txt[], ...);
+native irc_sendRAW(const format[], ...);
+native irc_setChanMode(const chan[], const modes[]);
+native irc_setMode(const chan[], const nick[], const modes[]);
+native irc_setTopic(const chan[], const format[], ...);
+native irc_setUserMode(const mode[]);
+native irc_unban(const chan[], const banmask[]);
+#define loadInt(%1) loadIntEx("%1", %1, 1)
+#define loadIntArray(%1) loadIntArrayEx("%1", %1, sizeof %1)
+#define loadString(%1) loadStringEx("%1", %1, sizeof %1)
+#define saveInt(%1) saveIntEx("%1", %1, 1)
+#define saveIntArray(%1) saveIntArrayEx("%1", %1, sizeof %1)
+#define saveString(%1) saveStringEx("%1", %1)
+native loadBool(const name[], &bool:val);
+native loadIntArrayEx(const name[], var[], size= sizeof var);
+native loadIntEx(const name[], &var, size= 1);
+native loadStringArray(const name[], id);
+native loadStringEx(const name[], data[], data_maxsize= sizeof data);
+native saveBool(const name[], const bool:val);
+native saveIntArrayEx(const name[], const val[], size= sizeof val);
+native saveIntEx(const name[], &val, size= 1);
+native saveStringArray(const name[], id);
+native saveStringEx(const name[], const data[]);
+native date:getCurrentDate(bool:with_time= true);
+native getDateDiff(date:timestamp1, date:timestamp2, type);
+native date:makeDate(const datestr[], bool:parse_time= true);
+native mask_get(const nick[], format, out[], out_maxsize= sizeof out);
+native string_array:mask_getlist(const channel[], const mask[]);
+native bool:mask_match(const nick[], const mask[]);
+native addUser(const name[], const what[], const flags[]);
+native bot_version(str[], str_maxsize= sizeof str);
+native delUser(const what[]);
+native disablePlugin();
+native editUser(const user[], const flags[]);
+native registerCommand(const cmd[], const func[], required_flag, const usage[]= "");
+native setStatusText(const txt[]);
+native snprintf(dest[], dest_maxsize= sizeof dest, const format[], ...);
+native string_array:str_explode(const str[], const sep[], mode= 0);
+native strncpy(dest[], const src[], dest_maxsize= sizeof dest, bool:packed= false);
+native bool:strnmatch(const s1[], const s2[], len);
+native bool:strnmatchi(const s1[], const s2[], len);
+native strstr(const where[], const what[]);
+native strstri(const where[], const what[]);
+native strtonum(const src[]);
+native substr(const str[], from, to, out[], out_maxsize= sizeof out);
+native array_add(string_array:id, const value[]);
+native string_array:array_create();
+native array_destroy(string_array:id);
+native array_get(string_array:id, position, out[], out_maxsize= sizeof out);
+native bool:array_isIn(string_array:id, const value[]);
+native array_join(string_array:id, const separator[], start_index, out[], out_maxsize= sizeof out);
+native array_remove(string_array:id, const value[]);
+native array_replace(string_array:id, const oldvalue[], const newvalue[]);
+native array_size(string_array:id);
+native bool:array_valid(string_array:id);

@@ -1,0 +1,734 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for Ruby</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln161'>Ruby</A></H1>
+<DIV class='el'><A href='#ln162'>$plugin_class</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln163'>RubyScript</A></H1>
+<DIV class='el'><A href='#ln167'>nick</A></DIV>
+<DIV class='el'><A href='#ln168'>max_nicklen</A></DIV>
+<DIV class='el'><A href='#ln169'>max_topiclen</A></DIV>
+<DIV class='el'><A href='#ln179'>addUserAccount()</A></DIV>
+<DIV class='el'><A href='#ln174'>changeNick()</A></DIV>
+<DIV class='el'><A href='#ln181'>delUser()</A></DIV>
+<DIV class='el'><A href='#ln178'>getChanObj()</A></DIV>
+<DIV class='el'><A href='#ln170'>getChannelList()</A></DIV>
+<DIV class='el'><A href='#ln177'>getUserObj()</A></DIV>
+<DIV class='el'><A href='#ln172'>isBotOn()</A></DIV>
+<DIV class='el'><A href='#ln171'>isChannelName()</A></DIV>
+<DIV class='el'><A href='#ln175'>join()</A></DIV>
+<DIV class='el'><A href='#ln165'>loadSimpleVar()</A></DIV>
+<DIV class='el'><A href='#ln176'>part()</A></DIV>
+<DIV class='el'><A href='#ln164'>registerCommand()</A></DIV>
+<DIV class='el'><A href='#ln166'>saveSimpleVar()</A></DIV>
+<DIV class='el'><A href='#ln180'>setAccessFlags()</A></DIV>
+<DIV class='el'><A href='#ln173'>userMode()</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln182'>User</A></H1>
+<DIV class='el'><A href='#ln183'>nick</A></DIV>
+<DIV class='el'><A href='#ln184'>account_name</A></DIV>
+<DIV class='el'><A href='#ln185'>auth</A></DIV>
+<DIV class='el'><A href='#ln186'>ident</A></DIV>
+<DIV class='el'><A href='#ln187'>host</A></DIV>
+<DIV class='el'><A href='#ln188'>full_host</A></DIV>
+<DIV class='el'><A href='#ln195'>getChannelList()</A></DIV>
+<DIV class='el'><A href='#ln191'>hasAccount()</A></DIV>
+<DIV class='el'><A href='#ln193'>hasChannelFlag()</A></DIV>
+<DIV class='el'><A href='#ln192'>hasGlobalFlag()</A></DIV>
+<DIV class='el'><A href='#ln194'>isAuth()</A></DIV>
+<DIV class='el'><A href='#ln190'>notice()</A></DIV>
+<DIV class='el'><A href='#ln189'>privmsg()</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln196'>Channel</A></H1>
+<DIV class='el'><A href='#ln197'>name</A></DIV>
+<DIV class='el'><A href='#ln204'>topic</A></DIV>
+<DIV class='el'><A href='#ln216'>action()</A></DIV>
+<DIV class='el'><A href='#ln206'>ban()</A></DIV>
+<DIV class='el'><A href='#ln209'>chanMode()</A></DIV>
+<DIV class='el'><A href='#ln212'>getUserlistFromMask()</A></DIV>
+<DIV class='el'><A href='#ln205'>invite()</A></DIV>
+<DIV class='el'><A href='#ln213'>isBanned()</A></DIV>
+<DIV class='el'><A href='#ln200'>isBotOp()</A></DIV>
+<DIV class='el'><A href='#ln214'>isInBanList()</A></DIV>
+<DIV class='el'><A href='#ln201'>isOn()</A></DIV>
+<DIV class='el'><A href='#ln202'>isOp()</A></DIV>
+<DIV class='el'><A href='#ln203'>isVoice()</A></DIV>
+<DIV class='el'><A href='#ln207'>kick()</A></DIV>
+<DIV class='el'><A href='#ln199'>part()</A></DIV>
+<DIV class='el'><A href='#ln215'>privmsg()</A></DIV>
+<DIV class='el'><A href='#ln198'>rejoin()</A></DIV>
+<DIV class='el'><A href='#ln211'>setChannelKey()</A></DIV>
+<DIV class='el'><A href='#ln210'>setMode()</A></DIV>
+<DIV class='el'><A href='#ln208'>unban()</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln161'></A><DIV class='Section'>
+<H1>Ruby</H1><DIV class='descr'>
+<PRE>
+	Ruby scripting
+</PRE>
+</DIV>
+<A name='ln162'></A><DIV class='Func'>
+<H1>VARIABLE: $plugin_class</H1><H2>TYPE:</H2>
+<PRE>	read / write
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Must be initialised with the name of the main plugin class
+	when the script is run
+</PRE>
+</DIV>
+</DIV>
+<A name='ln163'></A><DIV class='Section'>
+<H1>RubyScript</H1><DIV class='descr'>
+<PRE>
+	Main object, all script have to derivates their main class
+	from it in order to be loaded
+</PRE>
+</DIV>
+<A name='ln167'></A><DIV class='Func'>
+<H1>VARIABLE: nick ( since 0.8)</H1>
+<H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	variable holding the nick of the bot
+</PRE>
+</DIV>
+<A name='ln168'></A><DIV class='Func'>
+<H1>VARIABLE: max_nicklen ( since 0.8)</H1>
+<H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	variable holding the max size for a nickname (from server)
+</PRE>
+</DIV>
+<A name='ln169'></A><DIV class='Func'>
+<H1>VARIABLE: max_topiclen ( since 0.8)</H1>
+<H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	variable holding the max size for a topic (from server)
+</PRE>
+</DIV>
+<A name='ln179'></A>
+<DIV class='Func'>
+<H1>addUserAccount ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	addUserAccount(STRING account, STRING hostmask, STRING flags)
+</PRE>
+<H2>REMARKS:</H2>
+<PRE>	You can't have two account with the same hostmask or username
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer: 0 if user added
+			-1 if operation failed (hostmask already registered)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	account: account name for the newly created user
+	hostmask: hostmask the user ned to match to use this account
+	flags: flags t give to him (ex: "mno")
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	add a line in userfile.txt
+</PRE>
+</DIV>
+<A name='ln174'></A>
+<DIV class='Func'>
+<H1>changeNick</H1>
+<H2>USAGE:</H2>
+<PRE>	changeNick(STRING newnick)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	newnick: the new nick
+</PRE>
+</DIV>
+<A name='ln181'></A>
+<DIV class='Func'>
+<H1>delUser ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	delUser(STRING hostmask)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	hostmask: identification of the user to remove
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	remove a line from userfile.txt
+</PRE>
+</DIV>
+<A name='ln178'></A>
+<DIV class='Func'>
+<H1>getChanObj ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getChanObj(STRING name)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	<A href='Ruby.html#ln196'>Channel</A>: return the channel with given name
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name: the channel name
+</PRE>
+</DIV>
+<A name='ln170'></A>
+<DIV class='Func'>
+<H1>getChannelList ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getChannelList()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	array: return an array containing the list of channels
+		   the bot is currently on
+</PRE>
+</DIV>
+<A name='ln177'></A>
+<DIV class='Func'>
+<H1>getUserObj ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getUserObj(STRING nick)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	<A href='Ruby.html#ln182'>User</A>: return the user with given nickname
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick: the target nick
+</PRE>
+</DIV>
+<A name='ln172'></A>
+<DIV class='Func'>
+<H1>isBotOn ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isBotOn(STRING chan)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if bot is on the given channel
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan: channel name
+</PRE>
+</DIV>
+<A name='ln171'></A>
+<DIV class='Func'>
+<H1>isChannelName ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isChannelName(STRING name)
+</PRE>
+<H2>REMARKS:</H2>
+<PRE>	This function only test if the given name is valid
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if channel is a valid channel name
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name to test
+</PRE>
+</DIV>
+<A name='ln175'></A>
+<DIV class='Func'>
+<H1>join ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	join(STRING chan, STRING key= "")
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan: channel name
+	key: channel key
+</PRE>
+</DIV>
+<A name='ln165'></A>
+<DIV class='Func'>
+<H1>loadSimpleVar ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadSimpleVar(STRING name)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	depends on the value read
+	currently supported type are: STRING, INTEGER, FLOAT and BOOLEAN
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name: variable name in config file
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load a variable from config file
+</PRE>
+</DIV>
+<A name='ln176'></A>
+<DIV class='Func'>
+<H1>part ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	part(STRING chan)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan: channel name
+</PRE>
+</DIV>
+<A name='ln164'></A>
+<DIV class='Func'>
+<H1>registerCommand ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	registerCommand(STRING cmd, STRING func, CHAR flag, STRING usage)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	cmd: what to write on irc to call the function
+	func: name of the function in the script
+	flag: required flag to be able to use it
+	usage: help msg
+</PRE>
+</DIV>
+<A name='ln166'></A>
+<DIV class='Func'>
+<H1>saveSimpleVar ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveSimpleVar(STRING name, val)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name: variable name in config file
+	val: variable to save (string, integer, float or boolean)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save a variable to config file
+</PRE>
+</DIV>
+<A name='ln180'></A>
+<DIV class='Func'>
+<H1>setAccessFlags ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	setAccessFlags(STRING user, STRING type, STRING newflags)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer: 0 if user changed
+			-1 if operation failed (unknow hostmask)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	user: user account name
+	type: _global_ or a channel name
+	newflags: flags to give to user
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	modify flag for the given user identified by hostmask
+</PRE>
+</DIV>
+<A name='ln173'></A>
+<DIV class='Func'>
+<H1>userMode ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	userMode(STRING modestr)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	modestr : mode to set (ex: "+x")
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set user mode for the bot
+</PRE>
+</DIV>
+</DIV>
+<A name='ln182'></A><DIV class='Section'>
+<H1>User</H1><DIV class='descr'>
+<PRE>
+	an irc user
+</PRE>
+</DIV>
+<A name='ln183'></A><DIV class='Func'>
+<H1>VARIABLE: nick</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns user nickname
+</PRE>
+</DIV>
+<A name='ln184'></A><DIV class='Func'>
+<H1>VARIABLE: account_name</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns user account name
+</PRE>
+</DIV>
+<A name='ln185'></A><DIV class='Func'>
+<H1>VARIABLE: auth</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns user auth name
+</PRE>
+</DIV>
+<A name='ln186'></A><DIV class='Func'>
+<H1>VARIABLE: ident</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns user ident
+</PRE>
+</DIV>
+<A name='ln187'></A><DIV class='Func'>
+<H1>VARIABLE: host</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns user host
+</PRE>
+</DIV>
+<A name='ln188'></A><DIV class='Func'>
+<H1>VARIABLE: full_host</H1><H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	returns host in the form: &lt;nick&gt;!&lt;ident&gt;@&lt;host&gt;
+</PRE>
+</DIV>
+<A name='ln195'></A>
+<DIV class='Func'>
+<H1>getChannelList ( since 0.9 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getChannelList()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	array : channel list
+</PRE>
+<H2>WARNING:</H2>
+<PRE>	this list can't be accurate since the bot only know
+	informations about the channel where it is currently
+</PRE>
+</DIV>
+<A name='ln191'></A>
+<DIV class='Func'>
+<H1>hasAccount ( since 0.9 )</H1>
+<H2>USAGE:</H2>
+<PRE>	hasAccount()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if user match an account in userfile.txt
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	sends notice to user
+</PRE>
+</DIV>
+<A name='ln193'></A>
+<DIV class='Func'>
+<H1>hasChannelFlag ( since 0.9 )</H1>
+<H2>USAGE:</H2>
+<PRE>	hasChannelFlag(chan, flag)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if user has given flag on chan
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan: a <A href='Ruby.html#ln196'>Channel</A> object
+	flag: one of the following or more with |
+	USRLVL_OWNER
+	USRLVL_MASTER
+	USRLVL_OPERATOR
+	USRLVL_VOICE
+	USRLVL_KICK
+	USRLVL_PUBLIC
+</PRE>
+</DIV>
+<A name='ln192'></A>
+<DIV class='Func'>
+<H1>hasGlobalFlag ( since 0.9 )</H1>
+<H2>USAGE:</H2>
+<PRE>	hasGlobalFlag(flag)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if user has given global flag
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	flag: one of the following or more with |
+	USRLVL_OWNER
+	USRLVL_MASTER
+	USRLVL_OPERATOR
+	USRLVL_VOICE
+	USRLVL_KICK
+	USRLVL_PUBLIC
+</PRE>
+</DIV>
+<A name='ln194'></A>
+<DIV class='Func'>
+<H1>isAuth ( since 0.9 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isAuth()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if user authed with IRC server
+</PRE>
+</DIV>
+<A name='ln190'></A>
+<DIV class='Func'>
+<H1>notice ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	notice(STRING msg)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	msg: the message
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	sends notice to user
+</PRE>
+</DIV>
+<A name='ln189'></A>
+<DIV class='Func'>
+<H1>privmsg ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	privmsg(STRING msg)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	msg: the message
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	sends private message to user
+</PRE>
+</DIV>
+</DIV>
+<A name='ln196'></A><DIV class='Section'>
+<H1>Channel</H1><DIV class='descr'>
+<PRE>
+	an irc channel
+</PRE>
+</DIV>
+<A name='ln197'></A><DIV class='Func'>
+<H1>VARIABLE: name ( since 0.8)</H1>
+<H2>TYPE:</H2>
+<PRE>	read only
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	variable holding the name of the channel
+</PRE>
+</DIV>
+<A name='ln204'></A><DIV class='Func'>
+<H1>VARIABLE: topic ( since 0.8)</H1>
+<H2>TYPE:</H2>
+<PRE>	read / write
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	channel topic
+</PRE>
+</DIV>
+<A name='ln216'></A>
+<DIV class='Func'>
+<H1>action ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	action(STRING msg)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	msg: the action
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	like /me
+</PRE>
+</DIV>
+<A name='ln206'></A>
+<DIV class='Func'>
+<H1>ban ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	ban(STRING banmask)
+	ban(<A href='Ruby.html#ln182'>User</A> u)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	banmask: ban mask
+	u: user object
+</PRE>
+</DIV>
+<A name='ln209'></A>
+<DIV class='Func'>
+<H1>chanMode ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	chanMode(STRING modestr)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	modestr: a channel mode (ex: "+t")
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set channel mode
+</PRE>
+</DIV>
+<A name='ln212'></A>
+<DIV class='Func'>
+<H1>getUserlistFromMask ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getUserlistFromMask(STRING mask)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	array: list of all nicks matching mask on channel
+</PRE>
+</DIV>
+<A name='ln205'></A>
+<DIV class='Func'>
+<H1>invite ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	invite(STRING u)
+	invite(<A href='Ruby.html#ln182'>User</A> u)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	u: user object or nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	invites user on channel
+</PRE>
+</DIV>
+<A name='ln213'></A>
+<DIV class='Func'>
+<H1>isBanned ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isBanned(STRING host)
+	isBanned(<A href='Ruby.html#ln182'>User</A> u)
+</PRE>
+<H2>REMARKS:</H2>
+<PRE>	check if a ban mask match current hostname
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if banned
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	u: user object
+	host: host
+</PRE>
+</DIV>
+<A name='ln200'></A>
+<DIV class='Func'>
+<H1>isBotOp ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isBotOp()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if bot is op on channel
+</PRE>
+</DIV>
+<A name='ln214'></A>
+<DIV class='Func'>
+<H1>isInBanList ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isInBanList(STRING banmask)
+</PRE>
+<H2>REMARKS:</H2>
+<PRE>	check if this mask is in the ban list exactly
+	(no wildcard match here)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if in list
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	banmask: the mask
+</PRE>
+</DIV>
+<A name='ln201'></A>
+<DIV class='Func'>
+<H1>isOn ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isOn(STRING nick)
+	isOn(User u)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick: user nick
+	u: user object
+</PRE>
+</DIV>
+<A name='ln202'></A>
+<DIV class='Func'>
+<H1>isOp ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isOp(STRING nick)
+	isOp(User u)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick: user nick
+	u: user object
+</PRE>
+</DIV>
+<A name='ln203'></A>
+<DIV class='Func'>
+<H1>isVoice ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	isVoice(STRING nick)
+	isVoice(User u)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick: user nick
+	u: user object
+</PRE>
+</DIV>
+<A name='ln207'></A>
+<DIV class='Func'>
+<H1>kick ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	kick(STRING nick, STRING reason= "")
+	kick(User u, STRING reason= "")
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick: target name
+	u: user object
+</PRE>
+</DIV>
+<A name='ln199'></A>
+<DIV class='Func'>
+<H1>part ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	part()
+</PRE>
+</DIV>
+<A name='ln215'></A>
+<DIV class='Func'>
+<H1>privmsg ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	privmsg(STRING msg)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	msg: the message
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	send a message to the specified channel
+</PRE>
+</DIV>
+<A name='ln198'></A>
+<DIV class='Func'>
+<H1>rejoin ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	rejoin()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	parts and joins channel
+</PRE>
+</DIV>
+<A name='ln211'></A>
+<DIV class='Func'>
+<H1>setChannelKey ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	setChannelKey(STRING newkey)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	newkey: the key
+</PRE>
+</DIV>
+<A name='ln210'></A>
+<DIV class='Func'>
+<H1>setMode ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	setMode(STRING nick, STRING mode)
+	setMode(<A href='Ruby.html#ln182'>User</A> u, STRING mode)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	u: user object
+	nick: target nick
+	mode: mode string (ex: "+o")
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set user flag on channel
+</PRE>
+</DIV>
+<A name='ln208'></A>
+<DIV class='Func'>
+<H1>unban ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	ban(STRING banmask)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	banmask: unban mask
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

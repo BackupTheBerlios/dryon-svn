@@ -1,0 +1,42 @@
+#MY=/usr/local/bin/mysql_config
+CXX=c++
+RANLIB = ranlib
+AR = ar
+OS=FreeBSD
+
+# -pg for profiling
+DBG = -g
+INCPATH= -I/usr/local/include
+LDFLAGS = -pthread -L/usr/local/lib -lmysqlclient -lz -lcrypt -lm
+AMXINC= -I../amx/amx -I../amx/linux
+MYSQLINC= -I/usr/local/include/mysql
+
+CFLAGS  = -pipe $(INCPATH) $(AMXINC) $(DBG) -DLINUX -DAMX_NODYNALOAD -DNOPROPLIST
+CXXFLAGS= -pipe $(INCPATH) $(AMXINC) $(DBG) -DLINUX -DDEBUG -Wall -funsigned-char
+
+.include "Makefile.files"
+
+TMP= $(SRCS:.cpp=.o)
+OBJS= $(TMP:.c=.o)
+
+.c.o :
+	$(CC) $(CFLAGS) $< -c -o $@
+
+all: $(SRCS) amxbot
+
+sc_comp.o: ../amx/compiler/sc1.c ../amx/compiler/sc2.c
+amxbot.o: basebot.o basebot.h
+
+natives.o:
+	g++ $(CXXFLAGS) $(MYSQLINC) natives.cpp -c -o $@
+
+amxbot: $(OBJS)
+	@printf "\n"
+	c++ $(AMXINC) $(OBJS) $(DBG) $(LDFLAGS) -o amxbot
+
+
+clean:
+		rm -f *.core $(OBJS) amxbot
+
+
+

@@ -1,0 +1,129 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for GameServers_Extension</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln147'>GameServers_Extension</A></H1>
+<DIV class='el'><A href='#ln148'>hl_ping</A></DIV>
+<DIV class='el'><A href='#ln151'>hl_readinfos_int</A></DIV>
+<DIV class='el'><A href='#ln150'>hl_readinfos_string</A></DIV>
+<DIV class='el'><A href='#ln149'>hl_servinfos</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln152'>HL_rcon</A></H1>
+<DIV class='el'><A href='#ln154'>hl_rcon_close</A></DIV>
+<DIV class='el'><A href='#ln155'>hl_rcon_cmd</A></DIV>
+<DIV class='el'><A href='#ln153'>hl_rcon_init</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln147'></A><DIV class='Section'>
+<H1>GameServers_Extension</H1><DIV class='descr'>
+<PRE>
+	Module to retrieve informations from game servers, currently supported:
+	- HalfLife
+</PRE>
+</DIV>
+<A name='ln148'></A>
+<DIV class='Func'>
+<H1>hl_ping</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_ping(const host[], port= 27015)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if the server answered
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	host : halflife server hostname or ip or "host:ip"
+	port : halflife server port (if port not found in host)
+</PRE>
+</DIV>
+<A name='ln151'></A>
+<DIV class='Func'>
+<H1>hl_readinfos_int</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_readinfos_int(hl_infos:id, const what[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : value of requested field
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id   : infos identifier returned by <A href='GameServers_Extension.html#ln149'>hl_servinfos</A>
+	what : one of: "cur_clients", "max_clients"
+</PRE>
+</DIV>
+<A name='ln150'></A>
+<DIV class='Func'>
+<H1>hl_readinfos_string</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_readinfos_string(hl_infos:id, const what[], dest[], dest_maxsize= sizeof dest)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id           : infos identifier returned by <A href='GameServers_Extension.html#ln149'>hl_servinfos</A>
+	what         : one of: "map"
+	dest         : where to store the string
+	dest_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+</DIV>
+<A name='ln149'></A>
+<DIV class='Func'>
+<H1>hl_servinfos</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_infos:hl_servinfos(const host[], port= 27015)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	return an identifier for the infos or 0 if it failed
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	host : halflife server hostname or ip or "host:ip"
+	port : halflife server port (if port not found in host)
+</PRE>
+</DIV>
+</DIV>
+<A name='ln152'></A><DIV class='Section'>
+<H1>HL_rcon</H1><DIV class='descr'>
+<PRE>
+	manage rcon connections
+</PRE>
+</DIV>
+<A name='ln154'></A>
+<DIV class='Func'>
+<H1>hl_rcon_close</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_rcon_close(hl_rcon:id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : rcon connection identifier returned by <A href='GameServers_Extension.html#ln153'>hl_rcon_init</A>
+</PRE>
+</DIV>
+<A name='ln155'></A>
+<DIV class='Func'>
+<H1>hl_rcon_cmd</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_rcon_cmd(hl_rcon:id, const cmd[], out[], out_maxsize= sizeof out)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id          : rcon connection identifier returned by <A href='GameServers_Extension.html#ln153'>hl_rcon_init</A>
+	cmd         : the command to send
+	out         : string to store the server answer
+	out_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+</DIV>
+<A name='ln153'></A>
+<DIV class='Func'>
+<H1>hl_rcon_init</H1>
+<H2>USAGE:</H2>
+<PRE>	hl_rcon:hl_rcon_init(const pass[], const host[], port= 27015)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	rcon connection identifier
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	pass : rcon password
+	host : halflife server hostname or ip or "host:ip"
+	port : halflife server port (if port not found in host)
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

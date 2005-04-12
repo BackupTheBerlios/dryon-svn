@@ -1,0 +1,292 @@
+/*  Small compiler - Error message strings (plain and compressed formats)
+ *
+ *  Copyright (c) ITB CompuPhase, 2000-2004
+ *
+ *  This software is provided "as-is", without any express or implied warranty.
+ *  In no event will the authors be held liable for any damages arising from
+ *  the use of this software.
+ *
+ *  Permission is granted to anyone to use this software for any purpose,
+ *  including commercial applications, and to alter it and redistribute it
+ *  freely, subject to the following restrictions:
+ *
+ *  1.  The origin of this software must not be misrepresented; you must not
+ *      claim that you wrote the original software. If you use this software in
+ *      a product, an acknowledgment in the product documentation would be
+ *      appreciated but is not required.
+ *  2.  Altered source versions must be plainly marked as such, and must not be
+ *      misrepresented as being the original software.
+ *  3.  This notice may not be removed or altered from any source distribution.
+ *
+ *  Version: $Id: sc5.scp,v 1.1 2004/04/05 15:23:38 anthalir Exp $
+ */
+
+SC_FUNC int strexpand(char *dest, unsigned char *source, int maxlen, unsigned char pairtable[128][2]);
+
+#define SCPACK_TABLE errstr_table
+/*-*SCPACK start of pair table, do not change or remove this line */
+unsigned char errstr_table[][2] = {
+  {101,32}, {116,32}, {111,110}, {105,110}, {97,114}, {100,32}, {105,130}, {101,114}, {97,108}, {101,110}, {115,32}, {97,116}, {117,110}, {37,115}, {34,141}, {142,34},
+  {114,101}, {109,137}, {97,110}, {99,116}, {121,32}, {134,32}, {110,111}, {111,114}, {101,133}, {118,136}, {115,115}, {109,98}, {100,101}, {115,116}, {98,108}, {117,115},
+  {41,10}, {150,129}, {105,133}, {102,140}, {163,147}, {153,162}, {114,97}, {32,143}, {117,145}, {131,165}, {103,168}, {132,170}, {99,104}, {164,149}, {97,32}, {105,116},
+  {101,120}, {132,166}, {101,100}, {111,108}, {135,32}, {151,32}, {111,102}, {159,129}, {171,129}, {97,158}, {109,183}, {115,121}, {98,128}, {105,138}, {112,144}, {177,148},
+  {187,155}, {192,179}, {115,105}, {185,128}, {101,10}, {103,32}, {182,32}, {156,102}, {99,130}, {118,132}, {167,10}, {115,10}, {201,105}, {116,111}, {97,154}, {34,32},
+  {204,195}, {58,202}, {109,97}, {194,122}, {136,32}, {186,188}, {104,97}, {100,105}, {117,108}, {99,111}, {108,111}, {111,112}, {199,131}, {139,134}, {219,135}, {101,138},
+  {190,154}, {200,157}, {44,32}, {143,160}, {105,99}, {176,224}, {112,111}, {110,117}, {146,129}, {231,155}, {233,180}, {131,197}, {132,97}, {98,101}, {108,128}, {222,139},
+  {109,139}, {116,10}, {99,146}, {131,32}, {240,172}, {102,105}, {153,117}, {118,128}, {178,10}, {101,145}, {236,147}, {110,32}, {146,32}, {242,161}, {193,32}
+};
+/*-*SCPACK end of pair table, do not change or remove this line */
+
+static char *errmsg[] = {
+#ifdef SCPACK
+/*001*/  "expected token: \"%s\", but found \"%s\"\n",
+/*002*/  "only a single statement (or expression) can follow each \"case\"\n",
+/*003*/  "declaration of a local variable must appear in a compound block\n",
+/*004*/  "function \"%s\" is not implemented\n",
+/*005*/  "function may not have arguments\n",
+/*006*/  "must be assigned to an array\n",
+/*007*/  "reserved\n",
+/*008*/  "must be a constant expression; assumed zero\n",
+/*009*/  "invalid array size (negative or zero)\n",
+/*010*/  "invalid function or declaration\n",
+/*011*/  "invalid outside functions\n",
+/*012*/  "invalid function call, not a valid address\n",
+/*013*/  "no entry point (no public functions)\n",
+/*014*/  "invalid statement; not in switch\n",
+/*015*/  "\"default\" case must be the last case in switch statement\n",
+/*016*/  "multiple defaults in \"switch\"\n",
+/*017*/  "undefined symbol \"%s\"\n",
+/*018*/  "initialization data exceeds declared size\n",
+/*019*/  "not a label: \"%s\"\n",
+/*020*/  "invalid symbol name \"%s\"\n",
+/*021*/  "symbol already defined: \"%s\"\n",
+/*022*/  "must be lvalue (non-constant)\n",
+/*023*/  "array assignment must be simple assignment\n",
+/*024*/  "\"break\" or \"continue\" is out of context\n",
+/*025*/  "function heading differs from prototype\n",
+/*026*/  "no matching \"#if...\"\n",
+/*027*/  "invalid character constant\n",
+/*028*/  "invalid subscript (not an array or too many subscripts): \"%s\"\n",
+/*029*/  "invalid expression, assumed zero\n",
+/*030*/  "compound statement not closed at the end of file\n",
+/*031*/  "unknown directive\n",
+/*032*/  "array index out of bounds (variable \"%s\")\n",
+/*033*/  "array must be indexed (variable \"%s\")\n",
+/*034*/  "argument does not have a default value (argument %d)\n",
+/*035*/  "argument type mismatch (argument %d)\n",
+/*036*/  "empty statement\n",
+/*037*/  "invalid string (possibly non-terminated string)\n",
+/*038*/  "extra characters on line\n",
+/*039*/  "constant symbol has no size\n",
+/*040*/  "duplicate \"case\" label (value %d)\n",
+/*041*/  "invalid ellipsis, array size is not known\n",
+/*042*/  "invalid combination of class specifiers\n",
+/*043*/  "character constant exceeds range for packed string\n",
+/*044*/  "positional parameters must precede all named parameters\n",
+/*045*/  "too many function arguments\n",
+/*046*/  "unknown array size (variable \"%s\")\n",
+/*047*/  "array sizes must match\n",
+/*048*/  "array dimensions must match\n",
+/*049*/  "invalid line continuation\n",
+/*050*/  "invalid range\n",
+/*051*/  "invalid subscript, use \"[ ]\" operators on major dimensions\n",
+/*052*/  "multi-dimensional arrays must be fully initialized\n",
+/*053*/  "exceeding maximum number of dimensions\n",
+/*054*/  "unmatched closing brace\n",
+/*055*/  "start of function body without function header\n",
+/*056*/  "arrays, local variables and function arguments cannot be public (variable \"%s\")\n",
+/*057*/  "unfinished expression before compiler directive\n",
+/*058*/  "duplicate argument; same argument is passed twice\n",
+/*059*/  "function argument may not have a default value (variable \"%s\")\n",
+/*060*/  "multiple \"#else\" directives between \"#if ... #endif\"\n",
+/*061*/  "operator cannot be redefined\n",
+/*062*/  "number of operands does not fit the operator\n",
+/*063*/  "function result tag of operator \"%s\" must be \"%s\"\n",
+/*064*/  "cannot change predefined operators\n",
+/*065*/  "function argument may only have a single tag (argument %d)\n",
+/*066*/  "function argument may not be a reference argument or an array (argument \"%s\")\n",
+/*067*/  "variable cannot be both a reference and an array (variable \"%s\")\n",
+/*068*/  "invalid rational number precision in #pragma\n",
+/*069*/  "rational number format already defined\n",
+/*070*/  "rational number support was not enabled\n",
+/*071*/  "user-defined operator must be declared before use (function \"%s\")\n",
+/*072*/  "\"sizeof\" operator is invalid on \"function\" symbols\n",
+/*073*/  "function argument must be an array (argument \"%s\")\n",
+/*074*/  "#define pattern must start with an alphabetic character\n",
+/*075*/  "input line too long (after substitutions)\n",
+/*076*/  "syntax error in the expression, or invalid function call\n",
+/*077*/  "malformed UTF-8 encoding, or corrupted file: %s\n"
+#else
+  "\260pe\223\230\315k\211:\247\342bu\201fo\214\205\217\012",
+  "\202l\224\256s\203g\356\235\213\371\201(\265\345\206) \362 f\263\332w ea\254 \042case\042\012",
+  "\234cl\204\213\225\306\256\332c\324\320\272appe\204 \363\256\331m\346\214\205\236ock\012",
+  "\255\217 \275\241impl\371t\370",
+  "\255\322\224\241\326\367\253t\313",
+  "\325\316ign\230\315 \374\261y\012",
+  "\220s\207v\370",
+  "\325\256\341\350\345\206; \316um\230z\207o\012",
+  "\251\277\323\200(neg\213i\367\265z\207o\240",
+  "\251\255\265\234cl\204\335\012",
+  "\251out\302d\200\244\206\313",
+  "\251\255c\210l\342\241\256\245add\220\232\012",
+  "\226 \211tr\224\346\203\201(\226 pu\236\344 \244\206s\240",
+  "\251\235\213\371t; \241\363sw\257\254\012",
+  "\042\307a\330t\317cas\200\325th\200las\201cas\200\363sw\257\254 \235\213\371\361",
+  "m\330tip\356\307a\330t\212\363\042sw\257\254\042\012",
+  "\214\334\230\301\312",
+  "\203\257i\210iz\213\225d\213\256\260ce\262\212\234cl\204\230\323\304",
+  "\241\256la\355l\321",
+  "\251\376nam\200\217\012",
+  "\376\210\220ad\224\334\262\321",
+  "\325l\366\200(n\202-\341\222t\240",
+  "\277\316ign\221\201\325\302mp\356\316ign\221\361",
+  "\042b\220ak\317\265\042\310t\203ue\317\275ou\201\306\310t\260\361",
+  "\255head\353\327ff\207\212from pro\315typ\304",
+  "\226 \364\353\042#if...\042\012",
+  "\251\254\372\264\341\222\361",
+  "\251subscrip\201(\241\374\277\265\315o m\222\224subscripts)\321",
+  "\251\345\206\342\316um\230z\207o\012",
+  "\331m\346\214\205\235\213\371\201\241c\332s\230a\201th\200\211\205\306\365l\304",
+  "\214k\226w\373\327\220\223iv\304",
+  "\277\203\234x ou\201\306bo\214d\212(\320\343",
+  "\277\325\203\234x\230(\320\343",
+  "\270do\337\241\326\367\256\307a\330\201\366\200(\270%d\240",
+  "\270typ\200mis\364 (\270%d\240",
+  "empt\224\235\213\371\361",
+  "\251\235r\353(\346\232i\236\224n\202-t\207m\203\213\230\235r\203g\240",
+  "\260t\246 \254\372\207\212\202 l\203\304",
+  "\341\350\376\326\212\226 \323\304",
+  "dupl\344\213\200\042case\317la\355l (\366\200%d\240",
+  "\251ellip\302s\342\277\323\200\275\241k\226wn\012",
+  "\251\331\233\203\213\225\306clas\212speci\365\207\313",
+  "\254\372\264\341\350\260ce\262\212r\222g\200f\265pack\230\235r\203g\012",
+  "\346s\257\206\324p\354met\207\212\272\276c\262\200\210l nam\230p\354met\207\313",
+  "\315o m\222\224\255\253t\313",
+  "\214k\226w\373\277\323\200(\320\343",
+  "\277\323\337\272\364\012",
+  "\277\327\221s\206\212\272\364\012",
+  "\251l\203\200\310t\203u\335\012",
+  "\251r\222g\304",
+  "\251subscript\342\237\200\042[ ]\317\357\227\212\202 \322j\265\327\221s\206\313",
+  "m\330ti-\327\221s\206\324\261y\212\325f\330l\224\203\257i\210iz\370",
+  "\260ce\262\353\322ximum \352\306\327\221s\206\313",
+  "\214\364\230c\332s\353b\246c\304",
+  "\235\204\201\306\255bod\224w\257hou\201\255head\207\012",
+  "\261ys\342\332c\324\314\271\337\222\205\255\253t\212\375\274pu\236\344 (\320\343",
+  "\214f\203ish\230\345\225\355f\227\200\331mpil\264\327\220\223iv\304",
+  "dupl\344\213\200\253t; sam\200\270\275p\316\230tw\344\304",
+  "\255\270\322\224\241\326\367\256\307a\330\201\366\200(\320\343",
+  "m\330tip\356\042#else\317\327\220\223iv\337\355twe\211 \042#if ... #\211\327f\042\012",
+  "\357\265\375\274\220\334\370",
+  "\352\306\336\222d\212do\337\241\365\201th\200\357\227\012",
+  "\255\220s\330\201ta\305\306\357\227\247 \325\217\012",
+  "\375\254\222g\200\276\334\230\357\227\313",
+  "\255\270\322\224\202l\224\326\367\256s\203g\356ta\305(\270%d\240",
+  "\255\270\322\224\241\274\256\220f\207\211c\200\270\265\374\277(\270\343",
+  "\320\375\274both \256\220f\207\211c\200\222\205\374\277(\320\343",
+  "\251r\335\324\352\276cis\225\363#p\246g\322\012",
+  "r\335\324\352f\227\322\201\210\220ad\224\334\370",
+  "r\335\324\352supp\227\201wa\212\241\211\271\370",
+  "\237\207-\334\230\357\265\325\234cl\204\230\355f\227\200\237\200(\255\343",
+  "\042\323e\266\317\357\265\275\251\202 \042\244\206\317\301\313",
+  "\255\270\325\374\277(\270\343",
+  "#\334\200p\213t\207\373\272\235\204\201w\257h \374\210p\326\355t\344 \254\372\207\012",
+  "\203pu\201l\203\200\315o l\202\305(aft\264sub\235\257ut\206s\240",
+  "\273ntax \207r\265\363th\200\345\206\342\265\251\255c\210l\012",
+  "m\210f\227m\230UTF-8 \211\331d\203g\342\265c\227rupt\230\365le: \215\012"
+#endif
+       };
+
+static char *fatalmsg[] = {
+#ifdef SCPACK
+/*100*/  "cannot read from file: \"%s\"\n",
+/*101*/  "cannot write to file: \"%s\"\n",
+/*102*/  "table overflow: \"%s\"\n",
+          /* table can be: loop table
+           *               literal table
+           *               staging buffer
+           *               option table (response file)
+           *               peephole optimizer table
+           */
+/*103*/  "insufficient memory\n",
+/*104*/  "invalid assembler instruction \"%s\"\n",
+/*105*/  "numeric overflow, exceeding capacity\n",
+/*106*/  "compaction buffer overflow\n",
+/*107*/  "too many error messages on one line\n",
+/*108*/  "codepage mapping file not found\n",
+/*109*/  "invalid path: \"%s\"\n",
+/*110*/  "assertion failed: %s\n"
+#else
+  "\375\220a\205from \365le\321",
+  "\375wr\257\200\315 \365le\321",
+  "t\303ov\207f\332w\321",
+  "\203suff\344i\211\201mem\227y\012",
+  "\251\316e\233l\264\203\235ru\223\225\217\012",
+  "\347m\207\344 ov\207f\332w\342\260ce\262\353capac\257y\012",
+  "\331mpa\223\225buff\264ov\207f\332w\012",
+  "\315o m\222\224\207r\265me\232ag\337\202 \202\200l\203\304",
+  "\331\234pag\200\322pp\353\365\356\241fo\214d\012",
+  "\251p\213h\321",
+  "\316\207t\225fail\262: \215\012"
+#endif
+       };
+
+static char *warnmsg[] = {
+#ifdef SCPACK
+/*200*/  "symbol \"%s\" is truncated to %d characters\n",
+/*201*/  "redefinition of constant/macro (symbol \"%s\")\n",
+/*202*/  "number of arguments does not match definition\n",
+/*203*/  "symbol is never used: \"%s\"\n",
+/*204*/  "symbol is assigned a value that is never used: \"%s\"\n",
+/*205*/  "redundant code: constant expression is zero\n",
+/*206*/  "redundant test: constant expression is non-zero\n",
+/*207*/  "unknown #pragma\n",
+/*208*/  "function uses both \"return;\" and \"return <value>;\"\n",
+/*209*/  "function \"%s\" should return a value\n",
+/*210*/  "possible use of symbol before initialization: \"%s\"\n",
+/*211*/  "possibly unintended assignment\n",
+/*212*/  "possibly unintended bitwise operation\n",
+/*213*/  "tag mismatch\n",
+/*214*/  "possibly a \"const\" array argument was intended: \"%s\"\n",
+/*215*/  "expression has no effect\n",
+/*216*/  "nested comment\n",
+/*217*/  "loose indentation\n",
+/*218*/  "old style prototypes used with optional semicolumns\n",
+/*219*/  "local variable \"%s\" shadows a variable at a preceding level\n",
+/*220*/  "exported or native symbol \"%s\" is truncated to %d characters\n",
+/*221*/  "label name \"%s\" shadows tag name\n",
+/*222*/  "number of digits exceeds rational number precision\n",
+/*223*/  "redundant \"sizeof\": argument size is always 1 (symbol \"%s\")\n",
+/*224*/  "indeterminate array size in \"sizeof\" expression (symbol \"%s\")\n",
+/*225*/  "unreachable code\n",
+/*226*/  "a variable is assigned to itself (symbol \"%s\")\n"
+#else
+  "\301\247 \275tr\214c\213\230\315 %\205\254\372\207\313",
+  "\220\334\257\225\306\341\222t/\322cro (\301\247\240",
+  "\352\306\253t\212do\337\241\364 \334\257\206\012",
+  "\376\275nev\264\237\262\321",
+  "\376\275\316ign\230\256\366\200t\326\201\275nev\264\237\262\321",
+  "\220d\214d\350\331\234: \341\350\345\225\275z\207o\012",
+  "\220d\214d\350te\235: \341\350\345\225\275n\202-z\207o\012",
+  "\214k\226w\373#p\246g\322\012",
+  "\255\237\337both \042\220turn;\317\222\205\042\220tur\373<\366e>;\042\012",
+  "\255\217 sho\330\205\220tur\373\256\366\304",
+  "\346\232i\236\200\237\200\306\376\355f\227\200\203\257i\210iz\335\321",
+  "\346\232i\236\224\214\203t\211d\230\316ign\221\361",
+  "\346\232i\236\224\214\203t\211d\230b\257wis\200\336\335\012",
+  "ta\305mis\364\012",
+  "\346\232i\236\224\256\042\341\317\277\270wa\212\203t\211\234d\321",
+  "\345\225\326\212\226 effe\223\012",
+  "ne\235\230\331m\221\361",
+  "\332os\200\203d\211t\335\012",
+  "\263\205\235y\356pro\315typ\337\237\230w\257h \333t\206\324sem\344\263umn\313",
+  "\332c\324\320\217 s\326dow\212\256\320a\201\256\276c\262\353level\012",
+  "\260p\227t\230\265n\213i\367\301\247 \275tr\214c\213\230\315 %\205\254\372\207\313",
+  "la\355l nam\200\217 s\326dow\212ta\305nam\304",
+  "\352\306\327g\257\212\260ce\262\212r\335\324\352\276cis\206\012",
+  "\220d\214d\350\042\323e\266\042: \270\323\200\275\210way\2121 (\301\247\240",
+  "\203\234t\207m\203\213\200\277\323\200\363\042\323e\266\317\345\225(\301\247\240",
+  "\214\220a\254\303\331\234\012",
+  "\256\320\275\316ign\230\315 \257self (\301\247\240"
+#endif
+       };

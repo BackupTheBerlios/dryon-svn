@@ -1,0 +1,547 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for ScriptCallbacks</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln74'>ScriptCallbacks</A></H1>
+<DIV class='el'><A href='#ln76'>event_LoadPlugin</A></DIV>
+<DIV class='el'><A href='#ln77'>event_UnloadPlugin</A></DIV>
+<DIV class='el'><A href='#ln108'>event_onAction</A></DIV>
+<DIV class='el'><A href='#ln100'>event_onBan</A></DIV>
+<DIV class='el'><A href='#ln80'>event_onBotExit</A></DIV>
+<DIV class='el'><A href='#ln105'>event_onChanKeyRemoved</A></DIV>
+<DIV class='el'><A href='#ln104'>event_onChanKeySet</A></DIV>
+<DIV class='el'><A href='#ln106'>event_onChanMode</A></DIV>
+<DIV class='el'><A href='#ln78'>event_onConnected</A></DIV>
+<DIV class='el'><A href='#ln93'>event_onDeOp</A></DIV>
+<DIV class='el'><A href='#ln98'>event_onDeVoice</A></DIV>
+<DIV class='el'><A href='#ln81'>event_onJoin</A></DIV>
+<DIV class='el'><A href='#ln89'>event_onKick</A></DIV>
+<DIV class='el'><A href='#ln107'>event_onNickChange</A></DIV>
+<DIV class='el'><A href='#ln91'>event_onOp</A></DIV>
+<DIV class='el'><A href='#ln83'>event_onPart</A></DIV>
+<DIV class='el'><A href='#ln87'>event_onPrivMsg</A></DIV>
+<DIV class='el'><A href='#ln86'>event_onQuit</A></DIV>
+<DIV class='el'><A href='#ln79'>event_onRegistered</A></DIV>
+<DIV class='el'><A href='#ln109'>event_onTest</A></DIV>
+<DIV class='el'><A href='#ln88'>event_onTopicChange</A></DIV>
+<DIV class='el'><A href='#ln102'>event_onUnBan</A></DIV>
+<DIV class='el'><A href='#ln85'>event_onUserListing</A></DIV>
+<DIV class='el'><A href='#ln95'>event_onVoice</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln75'>BotRelated</A></H1>
+<DIV class='el'><A href='#ln101'>event_onBotBanned</A></DIV>
+<DIV class='el'><A href='#ln94'>event_onBotDeopped</A></DIV>
+<DIV class='el'><A href='#ln99'>event_onBotDevoiced</A></DIV>
+<DIV class='el'><A href='#ln97'>event_onBotDisconnected</A></DIV>
+<DIV class='el'><A href='#ln82'>event_onBotJoined</A></DIV>
+<DIV class='el'><A href='#ln90'>event_onBotKicked</A></DIV>
+<DIV class='el'><A href='#ln92'>event_onBotOpped</A></DIV>
+<DIV class='el'><A href='#ln84'>event_onBotPart</A></DIV>
+<DIV class='el'><A href='#ln103'>event_onBotUnBanned</A></DIV>
+<DIV class='el'><A href='#ln96'>event_onBotVoiced</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln74'></A><DIV class='Section'>
+<H1>ScriptCallbacks</H1><DIV class='descr'>
+<PRE>
+	functions called by the engine when events are triggered
+	bot is only aware of the events happening in a channel where it is
+	bot can't receive a join event for user Bob on channel #fgh if it
+	is not on it.
+	Its the basic of IRC but i felt like i had to put it there in case.
+</PRE>
+</DIV>
+<A name='ln76'></A>
+<DIV class='Func'>
+<H1>event_LoadPlugin ( since 0.3 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_LoadPlugin()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when plugin is loaded by the engine, you can't
+	be sure that the bot is connected to the IRC server there
+	so don't call any irc_* function here
+</PRE>
+</DIV>
+<A name='ln77'></A>
+<DIV class='Func'>
+<H1>event_UnloadPlugin ( since 0.3 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_UnloadPlugin()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when plugin is unloaded by the engine, you can't
+	be sure that the bot is connected to the IRC server there
+	so don't call any irc_* function here
+</PRE>
+</DIV>
+<A name='ln108'></A>
+<DIV class='Func'>
+<H1>event_onAction ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onAction(const sender[], const action[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	sender : nick of the user who sent this action
+	action : the action string
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when a user perform an action on a channel ( /me )
+</PRE>
+</DIV>
+<A name='ln100'></A>
+<DIV class='Func'>
+<H1>event_onBan ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBan(const chan[], const caller[], const banmask[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan    : channel name
+	caller  : nick of the user who set the ban
+	banmask : ban mask (ex: Bob!*@aol.com)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone add a ban on a channel
+</PRE>
+</DIV>
+<A name='ln80'></A>
+<DIV class='Func'>
+<H1>event_onBotExit ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotExit()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	called when an exit was requested by a script just before
+	the QUIT message is sent, you can only send small amount of irc commands
+	there: change a topic, send a message on a chan, if you send too much data
+	the bot will shut down the connection before all the commands are sent.
+</PRE>
+</DIV>
+<A name='ln105'></A>
+<DIV class='Func'>
+<H1>event_onChanKeyRemoved ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onChanKeyRemoved(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of user who removed the key
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone remove the key from a channel
+</PRE>
+</DIV>
+<A name='ln104'></A>
+<DIV class='Func'>
+<H1>event_onChanKeySet ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onChanKeySet(const chan[], const caller[], const key[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of user who set the key
+	key    : the new channel key
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone set a key on a channel
+</PRE>
+</DIV>
+<A name='ln106'></A>
+<DIV class='Func'>
+<H1>event_onChanMode ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onChanMode(const caller[], const chan[], const mode[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	caller : sender nick
+	chan   : channel name
+	mode   : mode string (ex: -n , +n)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone set or remove a channel mode
+</PRE>
+</DIV>
+<A name='ln78'></A>
+<DIV class='Func'>
+<H1>event_onConnected ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onConnected()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot receives message 001 from server
+	( welcome message )
+</PRE>
+</DIV>
+<A name='ln93'></A>
+<DIV class='Func'>
+<H1>event_onDeOp ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onDeOp(const chan[], const caller[], const target[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : deopper nick
+	target : nick of the user who lost op status
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone lost op status on a channel
+</PRE>
+</DIV>
+<A name='ln98'></A>
+<DIV class='Func'>
+<H1>event_onDeVoice ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onDeVoice(const chan[], const caller[], const target[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of the caller
+	target : nick of the user who lost voice
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone lost voice status on a channel
+</PRE>
+</DIV>
+<A name='ln81'></A>
+<DIV class='Func'>
+<H1>event_onJoin ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onJoin(const nick[], const chan[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	nick : user's nick
+	chan : channel the user joined
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone join a channel
+</PRE>
+</DIV>
+<A name='ln89'></A>
+<DIV class='Func'>
+<H1>event_onKick ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onKick(const kicker[], const chan[], const victim[], const kick_msg[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	kicker   : kicker nick
+	chan     : channel name
+	victim   : nick of user who got kicked
+	kick_msg : reason for the kick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	when a user get kicked
+</PRE>
+</DIV>
+<A name='ln107'></A>
+<DIV class='Func'>
+<H1>event_onNickChange ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onNickChange(const old_nick[], const new_nick[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	old_nick : old nick of the user
+	new_nick : actual nick of the user
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when a user changes nick
+</PRE>
+</DIV>
+<A name='ln91'></A>
+<DIV class='Func'>
+<H1>event_onOp ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onOp(const chan[], const caller[], const target[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : opper nick
+	target : opped nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when an user get op on a channel
+</PRE>
+</DIV>
+<A name='ln83'></A>
+<DIV class='Func'>
+<H1>event_onPart ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onPart(const nick[], const chan[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	nick : user's nick
+	chan : channel name
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when a user leave a channel
+</PRE>
+</DIV>
+<A name='ln87'></A>
+<DIV class='Func'>
+<H1>event_onPrivMsg ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onPrivMsg(const sender[], const dest[], string_array:args)
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	sender : sender nick
+	dest   : bot nick if private message
+		     channel name else
+	args   : text sent ( String_Array )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when a user says something on a channel
+	or when a user send a private message to the bot
+</PRE>
+</DIV>
+<A name='ln86'></A>
+<DIV class='Func'>
+<H1>event_onQuit ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onQuit(const nick[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	nick : user's nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when a user disconnect from the IRC server
+	or close the IRC client
+</PRE>
+</DIV>
+<A name='ln79'></A>
+<DIV class='Func'>
+<H1>event_onRegistered ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onRegistered()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when confirmation that the connection is
+	registered is received (mode +r)
+</PRE>
+</DIV>
+<A name='ln109'></A>
+<DIV class='Func'>
+<H1>event_onTest ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onTest()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when bot is in test mode, in this mode
+	the engine will call this event for all the plugins
+	and then exists, no connection to an IRC server is
+	done.
+</PRE>
+</DIV>
+<A name='ln88'></A>
+<DIV class='Func'>
+<H1>event_onTopicChange ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onTopicChange(const caller[], const chan[], const old_topic[], const new_topic[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	caller    : caller nick
+	chan      : channel name
+	old_topic : the old topic :)
+	new_topic : i let you guess
+</PRE>
+<H2>INFOS:</H2>
+<PRE>	if called in this function <A href='Small.html#ln38'>irc_getTopic</A> will return the new_topic
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	someone changed/removed the topic on a channel
+</PRE>
+</DIV>
+<A name='ln102'></A>
+<DIV class='Func'>
+<H1>event_onUnBan ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onUnBan(const chan[], const caller[], const banmask[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan    : channel name
+	caller  : nick of the user who removed the ban
+	banmask : ban mask
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone remove a ban
+</PRE>
+</DIV>
+<A name='ln85'></A>
+<DIV class='Func'>
+<H1>event_onUserListing ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onUserListing(const chan[], string_array:list)
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan : channel name
+	list : users list ( String_Array )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called just after a channel is joined by the bot, the IRC
+	server send it the user list of the channel
+</PRE>
+</DIV>
+<A name='ln95'></A>
+<DIV class='Func'>
+<H1>event_onVoice ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onVoice(const chan[], const caller[], const target[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of the voicer
+	target : nick of the user who got voice status
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone get voice status
+</PRE>
+</DIV>
+</DIV>
+<A name='ln75'></A><DIV class='Section'>
+<H1>BotRelated</H1><DIV class='descr'>
+<PRE>
+	callbacks fired by the bot itself,
+	when it joins, leaves, ...
+</PRE>
+</DIV>
+<A name='ln101'></A>
+<DIV class='Func'>
+<H1>event_onBotBanned ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotBanned(const chan[], const caller[], const banmask[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan    : channel name
+	caller  : nick of the user who set the ban
+	banmask : ban mask (ex: Bob!*@aol.com)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone add a ban on a channel
+	matching bot address
+</PRE>
+</DIV>
+<A name='ln94'></A>
+<DIV class='Func'>
+<H1>event_onBotDeopped ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotDeopped(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : deopper nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot lost op status on a channel
+</PRE>
+</DIV>
+<A name='ln99'></A>
+<DIV class='Func'>
+<H1>event_onBotDevoiced ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotDevoiced(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of the caller
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot lost voice status on a channel
+</PRE>
+</DIV>
+<A name='ln97'></A>
+<DIV class='Func'>
+<H1>event_onBotDisconnected ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotDisconnected()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	connection with server lost
+</PRE>
+</DIV>
+<A name='ln82'></A>
+<DIV class='Func'>
+<H1>event_onBotJoined ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotJoined(const chan[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan : channel the bot joined
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot join a channel
+</PRE>
+</DIV>
+<A name='ln90'></A>
+<DIV class='Func'>
+<H1>event_onBotKicked ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotKicked(const kicker[], const chan[], const kick_msg[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	kicker   : kicker nick
+	chan     : channel name
+	kick_msg : reason for the kick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	when the bot get kicked
+</PRE>
+</DIV>
+<A name='ln92'></A>
+<DIV class='Func'>
+<H1>event_onBotOpped ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotOpped(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : opper nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot got op by a user
+</PRE>
+</DIV>
+<A name='ln84'></A>
+<DIV class='Func'>
+<H1>event_onBotPart ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotPart(const channel[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan : channel name
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when the bot leaves a channel
+</PRE>
+</DIV>
+<A name='ln103'></A>
+<DIV class='Func'>
+<H1>event_onBotUnBanned ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotUnBanned(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan    : channel name
+	caller  : nick of the user who removed the ban
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when someone remove a ban matching bot address
+</PRE>
+</DIV>
+<A name='ln96'></A>
+<DIV class='Func'>
+<H1>event_onBotVoiced ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	public event_onBotVoiced(const chan[], const caller[])
+</PRE>
+<H2>OUTPUTS:</H2>
+<PRE>	chan   : channel name
+	caller : nick of the voicer
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	Called when bot get voice status
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

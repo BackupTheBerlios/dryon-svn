@@ -1,0 +1,133 @@
+Dryon 0.9:
+---------
+only a name change, I keeped 0.9 version number since I still think some things
+need to be changed/fixed/finished before I can release 1.0
+
+amxbot 0.9:
+----------
+bugs fixed
+- fixed some crashs related to ruby implementation (thread, gc and stack)
+
+changes:
+- new format for userfile.txt
+- +k mode for kill (auto kick-ban)
+- some improvements in the way network is handled
+- script config file saved in script_configs folder in bot folder
+   (to let multiple bots use the same scripts)
+
+
+amxbot 0.8:
+----------
+bugs fixed:
+- fixed bug in config reading system ( '\r' character was not removed )
+- giving "vo" flags to someone made the bot op AND voice him, now it should only op him
+- fixed bug with empty users.txt
+- fixed windows interface bug (interface was using 95% CPU)
+
+changes:
+- added loadBool and saveBool
+- added commands to add,remove and edit userlist (:adduser, :deluser, :edituser)
+	these new command result in the inability to add new user to file while the bot is running
+	and don't really like this but i have no idea how to solve this for now.
+- changed the language used to generate documentation from java to Ruby
+- bot now supports Ruby scripts (.rb)
+- script data file for script <script>.sma are now <script>.sma.cfg, same format,
+	just need to rename them since the script can have two different extension now.
+- under windows bot no longer appears in taskbar and has a systray icon
+- added flags to command line to change locations of config files
+
+known issues:
+- when reloading Ruby scripts, old definition is kept so if you remove a function/method declaration
+  and :reload then the function/method will still be available until next bot restart.
+
+
+amxbot 0.7:
+----------
+bugs fixed:
+- debug messages were not all shown when debugmode was used
+- solved a small problem that could delay the bot exit
+- timers are now fired for the first time after the given time
+- more than one timer can be used now
+
+changes:
+- added console for windows version
+- started implementing channel mode for user
+- added strstr and strstri native
+- added disablePlugin()
+- added :plugins command to list loaded plugins
+- renamed timer function to timre_add, timer_remove
+- added timer_valid to check validity of a given timer_id
+- added possibility to give parameters to the timer callback function
+
+
+amxbot 0.6:
+----------
+bus fixed:
+- minor bug preventing to connect to a BNC
+
+changes:
+- added event_onChanMode
+- added fallback nick when the primary nick is in use
+- added bot_version native function to retrieve bot version as a string
+- added mask manipulation functions: mask_getlist, mask_get and mask_match
+- some changes to ensure that the host/ident of all the user on a channel are available after joining
+- added string natives: strtonum, str_explode
+- added array_valid
+
+
+amxbot 0.5.2:
+------------
+bug fixed:
+- access levels are no properly removed after a :reload if removed from userfile
+
+changes:
+- added irc_isBanned and irc_isInBanList
+
+
+amxbot 0.5:
+----------
+bugs fixed:
+- wildcard matching could give a false result resulting in bas user identification
+  a user with a valid hostname could remain unknow to the bot
+
+changes:
+- added ability to send a password to the server (servers.txt)
+- line starting by # or // in servers.txt are now ignored
+- if identification by auth is not used you can turn it off to gain speed (less data to send/receive)
+- improved config file reading
+- changed wildcard matching function
+- changed variables name in amxbot.cfg
+- added possibility to show rcv/sent messages for debugging
+- added irc_sendRAW
+
+
+amxbot 0.4:
+----------
+bugs fixed:
+- fixed array_create
+- changed the way string_array save/load to let the strings contain commas
+
+changes:
+- added irc_getBotNick()
+- removed saves/ folder, now data files are stored in the script's directory
+- added support for extensions (dll or .so)
+- moved MySQL as an extension
+- moved Timers as an extension
+- added Gamerservers extension
+
+
+amxbot 0.3:
+----------
+bugs fixed:
+- bot failed to rejoin channels on reconnect
+- event_onConnect never called when server has no MOTD
+
+changes:
+- moved to robodoc to build the native functions documentation
+- recoded string_array in a better way
+- added array_destroy
+- added mysql_free_result
+- added removeTimedEvent
+- New event: public event_LoadPlugin()
+- New event: public event_UnloadPlugin()
+- added a serlist, the bot now cycle through the servers

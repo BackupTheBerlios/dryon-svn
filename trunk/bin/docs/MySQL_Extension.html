@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for MySQL_Extension</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln133'>MySQL_Extension</A></H1>
+<DIV class='el'><A href='#ln135'>mysql_close</A></DIV>
+<DIV class='el'><A href='#ln134'>mysql_connect</A></DIV>
+<DIV class='el'><A href='#ln136'>mysql_count_results</A></DIV>
+<DIV class='el'><A href='#ln137'>mysql_free_result</A></DIV>
+<DIV class='el'><A href='#ln138'>mysql_query</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln139'>FieldConversions</A></H1>
+<DIV class='el'><A href='#ln142'>mysql_get_DATEfield</A></DIV>
+<DIV class='el'><A href='#ln141'>mysql_get_INTfield</A></DIV>
+<DIV class='el'><A href='#ln140'>mysql_get_field</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln133'></A><DIV class='Section'>
+<H1>MySQL_Extension</H1><DIV class='descr'>
+<PRE>
+	database communication
+	special tags used:
+		- mysql_res : result identifier
+		- mysql_db  : db identifier
+</PRE>
+</DIV>
+<A name='ln135'></A>
+<DIV class='Func'>
+<H1>mysql_close</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_close(mysql_db:id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : connection identifier returned by <A href='MySQL_Extension.html#ln134'>mysql_connect</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	close a connection opened with <A href='MySQL_Extension.html#ln134'>mysql_connect</A>
+</PRE>
+</DIV>
+<A name='ln134'></A>
+<DIV class='Func'>
+<H1>mysql_connect</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_connect(&mysql_db:id, const host[], const login[], const pass[], const database_name[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool: false if connection fails
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id            : will receive the connection identifier if connection is a success
+	host          : ip of host
+	login         : login
+	pass          : & password
+	database_name : database to use after login
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	open a connection to a MySQL database
+</PRE>
+</DIV>
+<A name='ln136'></A>
+<DIV class='Func'>
+<H1>mysql_count_results</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_count_results(mysql_res:res)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : number of lines in the result
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	res : result identifier returned by <A href='MySQL_Extension.html#ln138'>mysql_query</A>
+</PRE>
+</DIV>
+<A name='ln137'></A>
+<DIV class='Func'>
+<H1>mysql_free_result</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_free_result(mysql_res:res)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	res : result identifier returned by <A href='MySQL_Extension.html#ln138'>mysql_query</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	free the memory used by the result
+</PRE>
+</DIV>
+<A name='ln138'></A>
+<DIV class='Func'>
+<H1>mysql_query</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_res:mysql_query(mysql_db:id, const format[], ...)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	a result identifier
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id     : connection identifier returned by <A href='MySQL_Extension.html#ln134'>mysql_connect</A>
+	format : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	execute a query on the database
+</PRE>
+</DIV>
+</DIV>
+<A name='ln139'></A><DIV class='Section'>
+<H1>FieldConversions</H1><DIV class='descr'>
+<PRE>
+	used to retrieve field data
+</PRE>
+</DIV>
+<A name='ln142'></A>
+<DIV class='Func'>
+<H1>mysql_get_DATEfield</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_get_DATEfield(mysql_res:result_index, array_index, const field_name[], buff[], buff_maxsize= sizeof buff, const dateformat[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	result_index : result identifier returned by <A href='MySQL_Extension.html#ln138'>mysql_query</A>
+	array_index  : result line ( use <A href='MySQL_Extension.html#ln136'>mysql_count_results</A> to get the line count )
+	field_name   : field name ( case sensitive )
+	buff         : where to store the result
+	buff_maxsize : <A href='Natives.html#ln0'>Natives</A>
+	dateformat   : format string ( will be passed as is to strftime system call
+					Here is a non-exhaustive list of the available options:
+					%d = day of the month ("01"-"31")
+					%e = day of the month (" 1"-"31")
+					%m = month ("01"-"12")
+					%F = "%Y-%m-%d"
+					%H = hour ("00"-"23") 24h
+					%I = hour ("01"-"12") 12h
+					%M = minutes ("00"-"59")
+					%S = seconds ("00"-"60")
+					%R = "%H:%M"
+					%T = "%H:%M:%S"
+					%n = newline
+					%t = tabulation
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	used to retrieve value of a result field as a formatted date string (DATETIME fields)
+</PRE>
+</DIV>
+<A name='ln141'></A>
+<DIV class='Func'>
+<H1>mysql_get_INTfield</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_get_INTfield(mysql_res:result_index, array_index, const field_name[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : field data converted to integer
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	result_index : result identifier returned by <A href='MySQL_Extension.html#ln138'>mysql_query</A>
+	array_index  : result line ( use <A href='MySQL_Extension.html#ln136'>mysql_count_results</A> to get the line count )
+	field_name   : field name ( case sensitive )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	used to retrieve value of a result field as an integer
+</PRE>
+</DIV>
+<A name='ln140'></A>
+<DIV class='Func'>
+<H1>mysql_get_field</H1>
+<H2>USAGE:</H2>
+<PRE>	mysql_get_field(mysql_res:result_index, array_index, const field_name[], buff[], buff_maxsize= sizeof buff)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	result_index : result identifier returned by <A href='MySQL_Extension.html#ln138'>mysql_query</A>
+	array_index  : result line ( use <A href='MySQL_Extension.html#ln136'>mysql_count_results</A> to get the line count )
+	field_name   : field name ( case sensitive )
+	buff         : where to store the result
+	buff_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	used to retrieve value of a result field as a string
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

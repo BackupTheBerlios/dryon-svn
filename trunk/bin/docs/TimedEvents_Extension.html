@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for TimedEvents_Extension</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln143'>TimedEvents_Extension</A></H1>
+<DIV class='el'><A href='#ln144'>timer_add</A></DIV>
+<DIV class='el'><A href='#ln145'>timer_remove</A></DIV>
+<DIV class='el'><A href='#ln146'>timer_valid</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln143'></A><DIV class='Section'>
+<H1>TimedEvents_Extension</H1><DIV class='descr'>
+<PRE>
+	handling of timed events
+</PRE>
+</DIV>
+<A name='ln144'></A>
+<DIV class='Func'>
+<H1>timer_add</H1>
+<H2>USAGE:</H2>
+<PRE>	timer_id:timer_add(const name[], seconds, ...)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	timer identifier
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name    : name of the function to call
+	seconds : seconds count between each call
+	...     : parameters to send to callback function (<A href='Natives.html#ln132'>VarArgFormat</A>)
+</PRE>
+</DIV>
+<A name='ln145'></A>
+<DIV class='Func'>
+<H1>timer_remove</H1>
+<H2>USAGE:</H2>
+<PRE>	timer_remove(timer_id:id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : timer identifier ( returned by <A href='TimedEvents_Extension.html#ln144'>timer_add</A> )
+</PRE>
+</DIV>
+<A name='ln146'></A>
+<DIV class='Func'>
+<H1>timer_valid</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:timer_valid(timer_id:id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : timer identifier ( returned by <A href='TimedEvents_Extension.html#ln144'>timer_add</A> )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	test if id is valid
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

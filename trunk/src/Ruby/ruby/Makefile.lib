@@ -1,0 +1,56 @@
+
+CC=gcc
+
+FILES= array.c \
+bignum.c \
+class.c \
+compar.c \
+dir.c \
+dln.c \
+enum.c \
+error.c \
+eval.c \
+file.c \
+gc.c \
+hash.c \
+inits.c \
+io.c \
+marshal.c \
+math.c \
+numeric.c \
+object.c \
+pack.c \
+parse.c \
+process.c \
+prec.c \
+random.c \
+range.c \
+re.c \
+regex.c \
+ruby.c \
+signal.c \
+sprintf.c \
+st.c \
+string.c \
+struct.c \
+time.c \
+util.c \
+variable.c \
+version.c \
+dmyext.c
+
+CFLAGS= -Wall -g -fPIC
+
+OBJS= $(FILES:.c=.o)
+
+all: libruby-bot.so
+
+libruby-bot.so: $(OBJS)
+	$(CC) $(CFLAGS) -shared -W1,-soname,libruby-bot.so.so -o libruby-bot.so $(OBJS)
+	cp libruby-bot.so ../../../bin/
+
+libruby-static.a: $(OBJS)
+	$(AR) cru libruby-static.a $(OBJS)
+
+clean:
+	@rm -rf $(OBJS) libruby-static.a libruby-bot.so

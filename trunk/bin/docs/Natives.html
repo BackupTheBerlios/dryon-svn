@@ -1,0 +1,1312 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation for Natives</TITLE></HEAD>
+<link rel='stylesheet' href='style.css' type='text/css'></HEAD>
+<BODY>
+<H1><A href='#ln0'>Natives</A></H1>
+<DIV class='el'><A href='#ln29'>debugPrint</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln15'>IRCFuncs</A></H1>
+<DIV class='el'><A href='#ln16'>getBotNick</A></DIV>
+<DIV class='el'><A href='#ln24'>irc_action</A></DIV>
+<DIV class='el'><A href='#ln32'>irc_ban</A></DIV>
+<DIV class='el'><A href='#ln20'>irc_changeNick</A></DIV>
+<DIV class='el'><A href='#ln22'>irc_getAccount</A></DIV>
+<DIV class='el'><A href='#ln23'>irc_getChanKey</A></DIV>
+<DIV class='el'><A href='#ln37'>irc_getTopic</A></DIV>
+<DIV class='el'><A href='#ln21'>irc_getauth</A></DIV>
+<DIV class='el'><A href='#ln41'>irc_isBanned</A></DIV>
+<DIV class='el'><A href='#ln17'>irc_isChanName</A></DIV>
+<DIV class='el'><A href='#ln33'>irc_isInBanList</A></DIV>
+<DIV class='el'><A href='#ln42'>irc_isbotopped</A></DIV>
+<DIV class='el'><A href='#ln40'>irc_isop</A></DIV>
+<DIV class='el'><A href='#ln43'>irc_isvoice</A></DIV>
+<DIV class='el'><A href='#ln18'>irc_join</A></DIV>
+<DIV class='el'><A href='#ln31'>irc_kick</A></DIV>
+<DIV class='el'><A href='#ln25'>irc_notice</A></DIV>
+<DIV class='el'><A href='#ln19'>irc_part</A></DIV>
+<DIV class='el'><A href='#ln27'>irc_privmsg</A></DIV>
+<DIV class='el'><A href='#ln39'>irc_quit</A></DIV>
+<DIV class='el'><A href='#ln26'>irc_say</A></DIV>
+<DIV class='el'><A href='#ln28'>irc_sendRAW</A></DIV>
+<DIV class='el'><A href='#ln36'>irc_setChanMode</A></DIV>
+<DIV class='el'><A href='#ln30'>irc_setMode</A></DIV>
+<DIV class='el'><A href='#ln38'>irc_setTopic</A></DIV>
+<DIV class='el'><A href='#ln35'>irc_setUserMode</A></DIV>
+<DIV class='el'><A href='#ln34'>irc_unban</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln44'>SaveLoad</A></H1>
+<DIV class='el'><A href='#ln45'>loadInt(M)</A></DIV>
+<DIV class='el'><A href='#ln46'>loadIntArray(M)</A></DIV>
+<DIV class='el'><A href='#ln55'>loadString(M)</A></DIV>
+<DIV class='el'><A href='#ln49'>saveInt(M)</A></DIV>
+<DIV class='el'><A href='#ln50'>saveIntArray(M)</A></DIV>
+<DIV class='el'><A href='#ln57'>saveString(M)</A></DIV>
+<DIV class='el'><A href='#ln53'>loadBool</A></DIV>
+<DIV class='el'><A href='#ln48'>loadIntArrayEx</A></DIV>
+<DIV class='el'><A href='#ln47'>loadIntEx</A></DIV>
+<DIV class='el'><A href='#ln59'>loadStringArray</A></DIV>
+<DIV class='el'><A href='#ln56'>loadStringEx</A></DIV>
+<DIV class='el'><A href='#ln54'>saveBool</A></DIV>
+<DIV class='el'><A href='#ln52'>saveIntArrayEx</A></DIV>
+<DIV class='el'><A href='#ln51'>saveIntEx</A></DIV>
+<DIV class='el'><A href='#ln60'>saveStringArray</A></DIV>
+<DIV class='el'><A href='#ln58'>saveStringEx</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln61'>TimeDateFuncs</A></H1>
+<DIV class='el'><A href='#ln64'>getCurrentDate</A></DIV>
+<DIV class='el'><A href='#ln62'>getDateDiff</A></DIV>
+<DIV class='el'><A href='#ln63'>makeDate</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln65'>MaskFuncs</A></H1>
+<DIV class='el'><A href='#ln68'>mask_get</A></DIV>
+<DIV class='el'><A href='#ln67'>mask_getlist</A></DIV>
+<DIV class='el'><A href='#ln66'>mask_match</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln69'>MiscFuncs</A></H1>
+<DIV class='el'><A href='#ln70'>bot_version</A></DIV>
+<DIV class='el'><A href='#ln72'>disablePlugin</A></DIV>
+<DIV class='el'><A href='#ln71'>registerCommand</A></DIV>
+<DIV class='br'></DIV>
+</DIV><DIV class='TOCSection'>
+<H1><A href='#ln109'>StringsFuncs</A></H1>
+<DIV class='el'><A href='#ln118'>snprintf</A></DIV>
+<DIV class='el'><A href='#ln120'>str_explode</A></DIV>
+<DIV class='el'><A href='#ln114'>strmatch</A></DIV>
+<DIV class='el'><A href='#ln116'>strmatchi</A></DIV>
+<DIV class='el'><A href='#ln117'>strncpy</A></DIV>
+<DIV class='el'><A href='#ln113'>strnmatch</A></DIV>
+<DIV class='el'><A href='#ln115'>strnmatchi</A></DIV>
+<DIV class='el'><A href='#ln111'>strstr</A></DIV>
+<DIV class='el'><A href='#ln112'>strstri</A></DIV>
+<DIV class='el'><A href='#ln119'>strtonum</A></DIV>
+<DIV class='el'><A href='#ln110'>substr</A></DIV>
+<DIV class='br'></DIV>
+<DIV class='TOCSection'>
+<H1><A href='#ln121'>String_Array</A></H1>
+<DIV class='el'><A href='#ln125'>array_add</A></DIV>
+<DIV class='el'><A href='#ln123'>array_create</A></DIV>
+<DIV class='el'><A href='#ln124'>array_destroy</A></DIV>
+<DIV class='el'><A href='#ln129'>array_get</A></DIV>
+<DIV class='el'><A href='#ln128'>array_isIn</A></DIV>
+<DIV class='el'><A href='#ln131'>array_join</A></DIV>
+<DIV class='el'><A href='#ln126'>array_remove</A></DIV>
+<DIV class='el'><A href='#ln127'>array_replace</A></DIV>
+<DIV class='el'><A href='#ln130'>array_size</A></DIV>
+<DIV class='el'><A href='#ln122'>array_valid</A></DIV>
+<DIV class='br'></DIV>
+</DIV></DIV><DIV class='TOCSection'>
+<H1><A href='#ln132'>VarArgFormat</A></H1>
+<DIV class='br'></DIV>
+</DIV><DIV class='br'></DIV>
+<BR><BR><BR><BR><BR><BR><BR>
+<A name='ln0'></A><DIV class='Section'>
+<H1>Natives</H1><DIV class='descr'>
+<PRE>
+	Functions useable in the scripts
+	all the <u>maxsize</u> parameters have a default value set
+	you don't need to specify it youself, just use the default value
+	It is the length of the array (not the max length of the string in it !), so if you declare
+	an array like this:  <b>new str[20];</b>
+	20 is the size to be given to the function as maxsize for str
+	to use the default value for a parameter which is not the last one use '_'
+	<b><u>def</u>: native myfunc(a= 2, b);</b>
+	<b><u>use</u>: myfunc( _, 5);</b>
+</PRE>
+</DIV>
+<A name='ln29'></A>
+<DIV class='Func'>
+<H1>debugPrint ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	debugPrint(const format[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	format : <A href='Natives.html#ln132'>VarArgFormat</A>
+              You can use colors:
+                 r= red
+                 g= green
+                 b= blue
+                 y= yellow
+                 m= magenta
+                 c= cyan
+                 z= reset
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	print a debug message on the console with plugin name
+</PRE>
+</DIV>
+</DIV>
+<A name='ln15'></A><DIV class='Section'>
+<H1>IRCFuncs</H1><DIV class='descr'>
+<PRE>
+	communication with IRC server
+</PRE>
+</DIV>
+<A name='ln16'></A>
+<DIV class='Func'>
+<H1>getBotNick ( since 0.4 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_getBotNick(dest[], dest_maxsize= sizeof dest)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	dest         : where to store the bot name
+	dest_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	return the current bot nick in dest
+</PRE>
+</DIV>
+<A name='ln24'></A>
+<DIV class='Func'>
+<H1>irc_action ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_action(const chan[], const str[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan : channel's name
+	str  : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	do an action ( like /me on mirc )
+</PRE>
+</DIV>
+<A name='ln32'></A>
+<DIV class='Func'>
+<H1>irc_ban ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_ban(const chan[], const banmask[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan    : channel's name
+	banmask : ban mask (ex: Bob!*@aol.com)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	ban someone from a channel
+</PRE>
+</DIV>
+<A name='ln20'></A>
+<DIV class='Func'>
+<H1>irc_changeNick ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_changeNick(const nick[])
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	if the bot reconnects to the the server
+	the nick from the config file is used
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : new nick
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	changes bot nick
+</PRE>
+</DIV>
+<A name='ln22'></A>
+<DIV class='Func'>
+<H1>irc_getAccount ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_getAccount(const nick[], acct[], acct_maxsize= sizeof acct)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick         : user's current nickname
+	acct         : where to store the account name
+	acct_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	retrieve user's account name
+</PRE>
+</DIV>
+<A name='ln23'></A>
+<DIV class='Func'>
+<H1>irc_getChanKey ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_getChanKey(const channel[], pass[], pass_maxsize= sizeof pass)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	channel      : channel's name
+	pass         : where to store the password
+	pass_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	retrieve the channel's password if set
+</PRE>
+</DIV>
+<A name='ln37'></A>
+<DIV class='Func'>
+<H1>irc_getTopic ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_getTopic(const chan[], topic[], topic_maxsize= sizeof topic)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan          : channel's name
+	topic         : where to store the topic
+	topic_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	retrieve topic of a channel
+</PRE>
+</DIV>
+<A name='ln21'></A>
+<DIV class='Func'>
+<H1>irc_getauth</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_getauth(const nick[], auth[], auth_maxsize= sizeof auth)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick         : target's current nickname
+	auth         : where to store the auth
+	auth_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	retrieve the auth of the user if authed
+	for Quakenet, it is the Q login
+</PRE>
+</DIV>
+<A name='ln41'></A>
+<DIV class='Func'>
+<H1>irc_isBanned ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isBanned(const what[], const channel[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if the user/mask if banned from channel
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	what    : can be a nick or a mask
+	channel : channel name
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	check if a user/mask is banned on channel
+</PRE>
+</DIV>
+<A name='ln17'></A>
+<DIV class='Func'>
+<H1>irc_isChanName ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isChanName(const channel[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean: true if channel is a channel name
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	channel : the channel name
+</PRE>
+</DIV>
+<A name='ln33'></A>
+<DIV class='Func'>
+<H1>irc_isInBanList ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isInBanList(const banmask[], const channel[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true if banmask is found in channel banlist
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	banmask : the mask
+	channel : channel name
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	check if the banmask is already registered in th channel banlist
+</PRE>
+</DIV>
+<A name='ln42'></A>
+<DIV class='Func'>
+<H1>irc_isbotopped ( since 0.2 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isbotopped(const chan[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if op
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan : channel
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	is the bot op on this channel ?
+</PRE>
+</DIV>
+<A name='ln40'></A>
+<DIV class='Func'>
+<H1>irc_isop ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isop(const nick[], const chan[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if op
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : target's current nick
+	chan : channel
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	is the user op on this channel ?
+</PRE>
+</DIV>
+<A name='ln43'></A>
+<DIV class='Func'>
+<H1>irc_isvoice ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:irc_isvoice(const nick[], const chan[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if voice
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : target's current nick
+	chan : channel
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	is the user voice on this channel ?
+</PRE>
+</DIV>
+<A name='ln18'></A>
+<DIV class='Func'>
+<H1>irc_join ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_join(const channel[], const pass[]= "")
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	channel : channel's name
+	pass    : channel's password (default: none)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	join an irc channel
+</PRE>
+</DIV>
+<A name='ln31'></A>
+<DIV class='Func'>
+<H1>irc_kick ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_kick(const chan[], const user[], const message[]="")
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan    : channel's name
+	user    : target nick
+	message : kick reason
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	kick someone from a channel
+</PRE>
+</DIV>
+<A name='ln25'></A>
+<DIV class='Func'>
+<H1>irc_notice ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_notice(const nick[], const txt[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : target's nick
+	txt  : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	send a notice to a user
+</PRE>
+</DIV>
+<A name='ln19'></A>
+<DIV class='Func'>
+<H1>irc_part ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_part(const channel[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	channel :  channel's name
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	leaves an irc channel
+</PRE>
+</DIV>
+<A name='ln27'></A>
+<DIV class='Func'>
+<H1>irc_privmsg ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_privmsg(const nick[], const txt[], ...)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	The message is sent to CTCP socket if one is open for this user otherwise
+	it is sent as a private message
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : target's nick
+	txt  : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	send private message to a user
+</PRE>
+</DIV>
+<A name='ln39'></A>
+<DIV class='Func'>
+<H1>irc_quit ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_quit(const msg[]= "")
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	this function should only be used in the main plugin
+	for obvious reasons
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	msg : reason for the exit (displayed by the server)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	quit the bot
+</PRE>
+</DIV>
+<A name='ln26'></A>
+<DIV class='Func'>
+<H1>irc_say ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_say(const chan[], const txt[], ...)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	The message is sent to CTCP socket if one is open for this user otherwise
+	it is sent as a private message
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan : channel(s name
+	txt  : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	send message to a channel
+</PRE>
+</DIV>
+<A name='ln28'></A>
+<DIV class='Func'>
+<H1>irc_sendRAW ( since 0.5 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_sendRAW(const format[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	format : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	send the given message directly to server (queued)
+</PRE>
+</DIV>
+<A name='ln36'></A>
+<DIV class='Func'>
+<H1>irc_setChanMode ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_setChanMode(const chan[], const modes[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan  : channel's name
+	modes : modes to set (ex: +r, +C)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set channel modes unrelated to users
+</PRE>
+</DIV>
+<A name='ln30'></A>
+<DIV class='Func'>
+<H1>irc_setMode ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_setMode(const chan[], const nick[], const modes[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan  : channel'name
+	nick  : target's nick
+	modes : mode string (ex: -o+v, +o, +v, ...)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set user modes on a channel
+</PRE>
+</DIV>
+<A name='ln38'></A>
+<DIV class='Func'>
+<H1>irc_setTopic ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_setTopic(const chan[], const format[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan   : channel's name
+	format : <A href='Natives.html#ln132'>VarArgFormat</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set topic of a channel
+</PRE>
+</DIV>
+<A name='ln35'></A>
+<DIV class='Func'>
+<H1>irc_setUserMode ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_setUserMode(const mode[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	mode : the mode string (ex: +x, +i)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	set user modes
+</PRE>
+</DIV>
+<A name='ln34'></A>
+<DIV class='Func'>
+<H1>irc_unban ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	irc_unban(const chan[], const banmask[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	chan    : channel's name
+	banmask : ban mask (ex: Bob!*@aol.com)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	unban someone from a channel
+</PRE>
+</DIV>
+</DIV>
+<A name='ln44'></A><DIV class='Section'>
+<H1>SaveLoad</H1><DIV class='descr'>
+<PRE>
+	functions used to save/load plugin data
+</PRE>
+</DIV>
+<A name='ln45'></A><DIV class='Macro'>
+<H1>MACRO: loadInt ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define loadInt(%1) loadIntEx("%1", %1, 1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	loadInt(var)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load integer from data file
+</PRE>
+</DIV>
+<A name='ln46'></A><DIV class='Macro'>
+<H1>MACRO: loadIntArray ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define loadIntArray(%1) loadIntArrayEx("%1", %1, sizeof %1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	loadIntArray(var[])
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load integer array from data file
+</PRE>
+</DIV>
+<A name='ln55'></A><DIV class='Macro'>
+<H1>MACRO: loadString ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define loadString(%1) loadStringEx("%1", %1, sizeof %1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	loadString(var[])
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load a string from data file
+</PRE>
+</DIV>
+<A name='ln49'></A><DIV class='Macro'>
+<H1>MACRO: saveInt ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define saveInt(%1) saveIntEx("%1", %1, 1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	saveInt(var)
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save integer array to data file
+</PRE>
+</DIV>
+<A name='ln50'></A><DIV class='Macro'>
+<H1>MACRO: saveIntArray ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define saveIntArray(%1) saveIntArrayEx("%1", %1, sizeof %1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	saveIntArray(var[])
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save integer array to data file
+</PRE>
+</DIV>
+<A name='ln57'></A><DIV class='Macro'>
+<H1>MACRO: saveString ( since 0.1)</H1>
+<H2>MACRO:</H2>
+<PRE>	#define saveString(%1) saveStringEx("%1", %1)
+</PRE>
+<H2>USAGE:</H2>
+<PRE>	saveString(var[])
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save a string to data file
+</PRE>
+</DIV>
+<A name='ln53'></A>
+<DIV class='Func'>
+<H1>loadBool ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadBool(const name[], &bool:val)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the array in the save file
+	val  : pointer to the amx variable
+</PRE>
+</DIV>
+<A name='ln48'></A>
+<DIV class='Func'>
+<H1>loadIntArrayEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadIntArrayEx(const name[], var[], size= sizeof var)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macros <A href='Natives.html#ln46'>loadIntArray</A> and <A href='Natives.html#ln45'>loadInt</A> to load
+	a variable from file when plugin is loaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the array in the save file
+	var  : pointer to the amx variable
+	size : size of the array
+</PRE>
+</DIV>
+<A name='ln47'></A>
+<DIV class='Func'>
+<H1>loadIntEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadIntEx(const name[], &var, size= 1)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macros <A href='Natives.html#ln46'>loadIntArray</A> and <A href='Natives.html#ln45'>loadInt</A> to load
+	a variable from file when plugin is loaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the integer in the save file
+	var  : pointer to the amx variable
+	size : size of the array
+</PRE>
+</DIV>
+<A name='ln59'></A>
+<DIV class='Func'>
+<H1>loadStringArray ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadStringArray(const name[], id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the string array in data file
+	id   : identifier of a valid array ( returned by <A href='Natives.html#ln123'>array_create</A> )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load a string array from data file
+</PRE>
+</DIV>
+<A name='ln56'></A>
+<DIV class='Func'>
+<H1>loadStringEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	loadStringEx(const name[], data[], data_maxsize= sizeof data)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macro <A href='Natives.html#ln55'>loadString</A> to load
+	a variable from data file when plugin is loaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name         : name of the string in data file
+	data         : where to store the string
+	data_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	load a string from data file
+</PRE>
+</DIV>
+<A name='ln54'></A>
+<DIV class='Func'>
+<H1>saveBool ( since 0.8 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveBool(const name[], const bool:val)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the array in the save file
+	val  : pointer to the amx variable
+</PRE>
+</DIV>
+<A name='ln52'></A>
+<DIV class='Func'>
+<H1>saveIntArrayEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveIntArrayEx(const name[], const val[], size= sizeof val)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macros <A href='Natives.html#ln50'>saveIntArray</A> and <A href='Natives.html#ln49'>saveInt</A> to save
+	a variable to data file when plugin is unloaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the array in the save file
+	val  : pointer to the amx variable
+	size : size of the array
+</PRE>
+</DIV>
+<A name='ln51'></A>
+<DIV class='Func'>
+<H1>saveIntEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveIntEx(const name[], &val, size= 1)
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macros <A href='Natives.html#ln50'>saveIntArray</A> and <A href='Natives.html#ln49'>saveInt</A> to save
+	a variable to data file when plugin is unloaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the integer in the save file
+	val  : pointer to the amx variable
+	size : size of the array
+</PRE>
+</DIV>
+<A name='ln60'></A>
+<DIV class='Func'>
+<H1>saveStringArray ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveStringArray(const name[], id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name : name of the string array in data file
+	id   : identifier of a valid array ( returned by <A href='Natives.html#ln123'>array_create</A> )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save a string array to data file
+</PRE>
+</DIV>
+<A name='ln58'></A>
+<DIV class='Func'>
+<H1>saveStringEx ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	saveStringEx(const name[], const data[])
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	You can use the helper macro <A href='Natives.html#ln57'>saveString</A> to save
+	a variable to data file when plugin is unloaded
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	name         : name of the string in data file
+	data         : string to save
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	save a string to data file
+</PRE>
+</DIV>
+</DIV>
+<A name='ln61'></A><DIV class='Section'>
+<H1>TimeDateFuncs</H1><DIV class='descr'>
+<PRE>
+	date/time manipulation
+</PRE>
+</DIV>
+<A name='ln64'></A>
+<DIV class='Func'>
+<H1>getCurrentDate ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	date:getCurrentDate(bool:with_time= true)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	return timestamp for current datetime
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	with_time : if false the HH:MM:SS part is set to 00:00:00
+</PRE>
+</DIV>
+<A name='ln62'></A>
+<DIV class='Func'>
+<H1>getDateDiff ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	getDateDiff(date:timestamp1, date:timestamp2, type)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : difference between the two timestamp
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	timestamp1 : timestamp for the newer date
+	timestamp2 : timestamp for the older date
+	type       : return type
+				 's' = return diff in seconds
+			     'm' = return diff in minutes
+			     'h' = return diff in hours
+			     'd' = return diff in days
+</PRE>
+</DIV>
+<A name='ln63'></A>
+<DIV class='Func'>
+<H1>makeDate ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	date:makeDate(const datestr[], bool:parse_time= true)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	datestr    : datetime in MySQL format (YYY-MM-DD HH:MM:SS)
+	parse_time : if false the HH:MM:SS is ignored in datestr and
+				 00:00:00 is used instead to generate the timestamp
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	build a timestamp from  date in MySQL format
+</PRE>
+</DIV>
+</DIV>
+<A name='ln65'></A><DIV class='Section'>
+<H1>MaskFuncs</H1><DIV class='descr'>
+<PRE>
+	mask related
+</PRE>
+</DIV>
+<A name='ln68'></A>
+<DIV class='Func'>
+<H1>mask_get ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	mask_get(const nick[], format, out[], out_maxsize= sizeof out)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick        : user nick
+	format      :	full hostname: <nick>!<ident>@<host>
+					1 = return the full hostname
+			 		2 = return the host part only
+			 		3 = return the ident part only
+	out         : where to hostname will be stored
+	out_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	simply return the mask for nick
+</PRE>
+</DIV>
+<A name='ln67'></A>
+<DIV class='Func'>
+<H1>mask_getlist ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	string_array:mask_getlist(const channel[], const mask[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	string array : <A href='Natives.html#ln121'>String_Array</A>
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	channel : channel name
+	mask    : the mask
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	return a list of all the user who match mask
+</PRE>
+</DIV>
+<A name='ln66'></A>
+<DIV class='Func'>
+<H1>mask_match ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:mask_match(const nick[], const mask[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if user hostname match mask
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	nick : user nick
+	mask : mask
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	check if user hostname match mask
+</PRE>
+</DIV>
+</DIV>
+<A name='ln69'></A><DIV class='Section'>
+<H1>MiscFuncs</H1><DIV class='descr'>
+<PRE>
+	-
+</PRE>
+</DIV>
+<A name='ln70'></A>
+<DIV class='Func'>
+<H1>bot_version ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bot_version(str[], str_maxsize= sizeof str)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	str         : where to store the version number
+	str_maxsize : <A href='Natives.html#ln0'>Natives</A>
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	return the bot version in str
+</PRE>
+</DIV>
+<A name='ln72'></A>
+<DIV class='Func'>
+<H1>disablePlugin ( since 0.7 )</H1>
+<H2>USAGE:</H2>
+<PRE>	disablePlugin()
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	deactivate the plugin, plugin will remain loaded but
+	wont answer to any event.
+	You can use this to disable the plugin if an unrecoverable error
+	happens (ex: unable to connect to database)
+</PRE>
+</DIV>
+<A name='ln71'></A>
+<DIV class='Func'>
+<H1>registerCommand ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	registerCommand(const cmd[], const func[], required_flag, const usage[]= "")
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	cmd           : command that will trigger the function call (ex: "!add")
+	func          : name of the function to call
+	required_flag : function will only be called if user has this flag,
+					use '*' for public commands
+	usage         : used when displaying help ( !help command )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	declares a new bot command
+</PRE>
+</DIV>
+</DIV>
+<A name='ln109'></A><DIV class='Section'>
+<H1>StringsFuncs</H1><DIV class='descr'>
+<PRE>
+	string manipulation
+</PRE>
+</DIV>
+<A name='ln118'></A>
+<DIV class='Func'>
+<H1>snprintf ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	snprintf(dest[], dest_maxsize= sizeof dest, const format[], ...)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	dest         : destination string
+	dest_maxsize : Natives
+	format       : VarArgFormat
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	print a formatted string in dest
+</PRE>
+</DIV>
+<A name='ln120'></A>
+<DIV class='Func'>
+<H1>str_explode ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	string_array:str_explode(const str[], const sep[], mode= 0)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	string_array : <A href='Natives.html#ln121'>String_Array</A>
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	str : the original string
+	sep : the separator
+	mode: determine of sep is used :
+			0= string will be cut with any character found in sep
+			1= string will be cut with the whole string sep as separator
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	cut str in parts with sep
+</PRE>
+</DIV>
+<A name='ln114'></A>
+<DIV class='Func'>
+<H1>strmatch ( since 0.1 )</H1>
+<H2>NOTES:</H2>
+<PRE>	function implemented in amxbot.inc
+	using strnmatch
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if both strings are the same
+</PRE>
+<H2>MACRO:</H2>
+<PRE>	bool:strmatch(const s1[], const s2[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	s1 		: first string
+	s2 		: second string
+</PRE>
+</DIV>
+<A name='ln116'></A>
+<DIV class='Func'>
+<H1>strmatchi ( since 0.6 )</H1>
+<H2>NOTES:</H2>
+<PRE>	function implemented in amxbot.inc
+	using strnmatchi (case insensitive)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if both strings are the same
+</PRE>
+<H2>MACRO:</H2>
+<PRE>	bool:strmatchi(const s1[], const s2[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	s1 		: first string
+	s2 		: second string
+</PRE>
+</DIV>
+<A name='ln117'></A>
+<DIV class='Func'>
+<H1>strncpy ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	strncpy(dest[], const src[], dest_maxsize= sizeof dest, bool:packed= false)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	dest         : destination string
+	src          : source string
+	dest_maxsize : Natives
+	packed       : do you want the dest string to be packed ?
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	copy src string in dest string
+</PRE>
+</DIV>
+<A name='ln113'></A>
+<DIV class='Func'>
+<H1>strnmatch ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:strnmatch(const s1[], const s2[], len)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if both strings are the same
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	s1 		: first string
+	s2 		: second string
+	len     : number of characters to compare
+</PRE>
+</DIV>
+<A name='ln115'></A>
+<DIV class='Func'>
+<H1>strnmatchi ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:strnmatchi(const s1[], const s2[], len)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if both strings are the same (case insensitive)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	s1 		: first string
+	s2 		: second string
+	len     : number of characters to compare
+</PRE>
+</DIV>
+<A name='ln111'></A>
+<DIV class='Func'>
+<H1>strstr ( since 0.7 )</H1>
+<H2>USAGE:</H2>
+<PRE>	strstr(const where[], const what[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : starting index if what is found, -1 else
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	where : string in which to look
+	what  : string to search for in where
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	look for what in where and return starting index if found
+</PRE>
+</DIV>
+<A name='ln112'></A>
+<DIV class='Func'>
+<H1>strstri ( since 0.7 )</H1>
+<H2>USAGE:</H2>
+<PRE>	strstri(const where[], const what[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : starting index if what is found, -1 else
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	where : string in which to look
+	what  : string to search for in where
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	look for what in where and return starting index if found
+	case insensitive version
+</PRE>
+</DIV>
+<A name='ln119'></A>
+<DIV class='Func'>
+<H1>strtonum ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	strtonum(const src[])
+</PRE>
+<H2>REMARKS:</H2>
+<PRE>	if the string does not contains a number result will be 0
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	src : the string where the number is
+</PRE>
+<H2>RETURN:</H2>
+<PRE>	integer : the number
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	convert number stored in a string to an integer
+</PRE>
+</DIV>
+<A name='ln110'></A>
+<DIV class='Func'>
+<H1>substr ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	substr(const str[], from, to, out[], out_maxsize= sizeof out)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	str         : source string
+	from        : first character index
+	to          : last character index
+	out         : destination string
+	out_maxsize : Natives
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	extract part of a string
+</PRE>
+</DIV>
+</DIV>
+<A name='ln121'></A><DIV class='Section'>
+<H1>String_Array</H1><DIV class='descr'>
+<PRE>
+	manipulation of arrays of string
+</PRE>
+</DIV>
+<A name='ln125'></A>
+<DIV class='Func'>
+<H1>array_add ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_add(string_array:id, const value[])
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	empty string and character ',' not allowed
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id 	  : array id ( from array_create )
+	value : string to add
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	add a value in the array
+</PRE>
+</DIV>
+<A name='ln123'></A>
+<DIV class='Func'>
+<H1>array_create ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	string_array:array_create()
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : array identifier required for all string array functions
+</PRE>
+</DIV>
+<A name='ln124'></A>
+<DIV class='Func'>
+<H1>array_destroy ( since 0.3 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_destroy(string_array:id)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id 	  : array id ( from array_create )
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	mark the array as free so it can be reused
+</PRE>
+</DIV>
+<A name='ln129'></A>
+<DIV class='Func'>
+<H1>array_get ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_get(string_array:id, position, out[], out_maxsize= sizeof out)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id           : array id ( from array_create )
+	position     : index of the wanted string
+	out          : destination string
+	out_maxsize  : Natives
+</PRE>
+</DIV>
+<A name='ln128'></A>
+<DIV class='Func'>
+<H1>array_isIn ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:array_isIn(string_array:id, const value[])
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	bool : true if value is found in array
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id    : array id ( from array_create )
+	value : string to look for
+</PRE>
+</DIV>
+<A name='ln131'></A>
+<DIV class='Func'>
+<H1>array_join ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_join(string_array:id, const separator[], start_index, out[], out_maxsize= sizeof out)
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id          : array id ( from array_create )
+	separator   : will be put between each value
+	start_index : starting index in the array
+	out         : destination string
+	out_maxsize : Natives
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	build a string with the elements of one array
+</PRE>
+</DIV>
+<A name='ln126'></A>
+<DIV class='Func'>
+<H1>array_remove ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_remove(string_array:id, const value[])
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id    : array id ( from array_create )
+	value : string to remove from array
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	remove first occurence of a string from array
+</PRE>
+</DIV>
+<A name='ln127'></A>
+<DIV class='Func'>
+<H1>array_replace ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_replace(string_array:id, const oldvalue[], const newvalue[])
+</PRE>
+<H2>NOTES:</H2>
+<PRE>	empty string and character ',' not allowed
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id       : array id ( from array_create )
+	oldvalue : look for this string
+	newvalue : and replace it by this one
+</PRE>
+<H2>DESCRIPTION:</H2>
+<PRE>	replace first occurence of a string with another
+</PRE>
+</DIV>
+<A name='ln130'></A>
+<DIV class='Func'>
+<H1>array_size ( since 0.1 )</H1>
+<H2>USAGE:</H2>
+<PRE>	array_size(string_array:id)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	integer : size of the array
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : array id ( from array_create )
+</PRE>
+</DIV>
+<A name='ln122'></A>
+<DIV class='Func'>
+<H1>array_valid ( since 0.6 )</H1>
+<H2>USAGE:</H2>
+<PRE>	bool:array_valid(string_array:id)
+</PRE>
+<H2>RETURN VALUE:</H2>
+<PRE>	boolean : true is id is a valid string array
+</PRE>
+<H2>INPUTS:</H2>
+<PRE>	id : string array returned by <A href='Natives.html#ln123'>array_create</A>, %str_replace% or <A href='Natives.html#ln67'>mask_getlist</A>
+</PRE>
+</DIV>
+</DIV>
+<A name='ln132'></A><DIV class='Section'>
+<H1>VarArgFormat</H1><DIV class='descr'>
+<PRE>
+	handling of variable parameters count
+	%% : '%' character
+	%d : integer
+	%c : character
+	%x : hexadecimal number
+	%s : string
+</PRE>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

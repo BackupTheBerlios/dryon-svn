@@ -1,0 +1,182 @@
+BODY {
+	width: 100%;
+	height: 100%;
+	margin: 5px;
+	padding: 0px;
+	text-indent: 0px;
+	font-size: 14px;
+    font-family: 'Lucida Grande', Verdana,
+                     Geneva, Lucida, Arial,
+                     Helvetica, sans-serif;
+}
+
+PRE
+{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+A {
+	text-decoration: none;
+}
+
+A:hover {
+	border-bottom: 1px solid green;
+	font-weight: bold;
+}
+
+.br {
+	clear: both;
+	height: 0px;
+	width: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.TOCSection {
+	display: block;
+	float: left;
+	margin: 2px;
+	padding: 1px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	width: 210px;
+	text-align: left;
+	border: 2px solid grey;
+}
+
+.TOCSection .TOCSection {
+	width: 202px;
+	border: 1px solid grey;
+}
+
+/* title */
+.TOCSection H1 {
+	display: inline;
+	height: 10px;
+	border-bottom: 1px solid grey;
+	margin: 0px;
+	padding: 0px;
+	color:#369;
+	font-size: 100%;
+	text-align: center;
+}
+
+.TOCSection H1 A {
+	display: inline;
+	border-bottom: 1px solid grey;
+	text-decoration: none;
+	margin: 0;
+	padding: 0px;
+	margin-bottom: 20px;
+	color: #369;
+	font-size: 100%;
+	text-align: center;
+}
+
+.TOCSection .el {
+	display: block;
+	font-size: 14;
+	font-weight: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+/*****************/
+/* function list */
+
+.Section {
+	display: block;
+	width: 85%;
+	margin: 0px;
+	margin-bottom: 5px;
+	margin-left: 5%;
+	padding: 10px;
+	border: 1px solid black;
+}
+
+.Section H1 {
+	display: block;
+	font-size: 100%;
+	margin-bottom: 0px;
+
+}
+
+.Section .descr {
+	border: 1px solid green;
+	padding: 3px;
+	margin-bottom: 5px;
+}
+
+.Section H2 {
+	display: inline;
+	font-size: 100%;
+	text-decoration: underline;
+}
+
+/************/
+
+/**** FUNCTIONS ****/
+.Func {
+	display: block;
+	margin: 2px;
+	padding: 2px;
+	margin-bottom: 10px;
+	padding-top: 0;
+	border: 1px solid grey;
+}
+
+.Func H1 {
+	display: block;
+	font-size: 100%;
+	border-bottom: 2px solid grey;
+	padding: 0px;
+	margin: 0px;
+	height: 20px;
+	padding-bottom: 5px;
+	background-color: #EEEEEE;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+.Func H2 {
+	display: inline;
+	font-size: 80%;
+	text-decoration: underline;
+}
+
+/**** MACROS ****/
+.Macro {
+	display: block;
+	margin: 2px;
+	padding: 2px;
+	margin-bottom: 10px;
+	padding-top: 0;
+	border: 1px solid grey;
+}
+
+.Macro H1 {
+	display: block;
+	font-size: 100%;
+	border-bottom: 2px solid grey;
+	padding: 0px;
+	margin: 0px;
+	height: 20px;
+	padding-bottom: 5px;
+	background-color: none;
+	vertical-align: bottom;
+	text-align: left;
+}
+
+.Macro H2 {
+	display: inline;
+	font-size: 80%;
+	text-decoration: underline;
+}
+
+
+
+
+
+

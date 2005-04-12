@@ -1,0 +1,37 @@
+
+RUBY_PATH= Ruby/ruby-1.8.1
+
+SRCS= \
+ tokens.cpp \
+ log.cpp \
+ sockets.cpp \
+ serverlist.cpp \
+ cfg.cpp \
+ utils.cpp \
+ thread.cpp \
+ userfile.cpp \
+ script.cpp \
+ match.cpp \
+ dryon.cpp \
+ basebot.cpp \
+ Small/natives.cpp \
+ Small/amx/amx/amxcore.c \
+ Small/amx/amx/amx.c \
+ Small/sc_comp.cpp \
+ Small/natives_base.cpp \
+ Small/natives_strings.cpp \
+ Small/amx_script.cpp \
+ Ruby/ruby_script.cpp \
+ Ruby/ruby_embed.cpp \
+ Ruby/network.cpp \
+ regex.c
+
+
+
+
+
+
+
+
+
+
