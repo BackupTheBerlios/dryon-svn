@@ -8,9 +8,9 @@ What is Dryon ?
 -------------
 Dryon is an irc bot previously known as amxbot, it was born since i wasn't satisfied with the existing 
 irc bots. I use it everyday to manage a clan channel so I think i can say everything possible was done 
-to it and it should know works with no problems, my bot runs under FreeBSD.
-Aside of that it is a scriptable bot, scripts can use Small from Compuphase (faster execution than ruby 
-but scipts are bigger and harder to write, not hard but harder compared to ruby :) ) ,Ruby (object
+to it and it should now works without problems, my test bot runs under FreeBSD.
+It is a scriptable bot, scripts can use Small from Compuphase (faster execution than ruby 
+but scripts are bigger and harder to write, not hard but harder compared to ruby :) ) or Ruby (object
 oriented and really powerfull scripting language)
 
 
@@ -30,21 +30,23 @@ For freebsd and linux:
 	
 Under windows I provide the project for Misual Studio 6 but I no longer use it
 so some changes may need to be done to it, and the Visual Studio .net project
-is the one I use to build releases so it should work.
+is the one I use to build releases so it should work for you.
 It didn't manage to get it to compile with another compiler under windows, if
 you manage to, please tell me.
 
 To run Dryon:
 -------------
 
-dryon <config_file>
+dryon [<config_file>]
 
 if config_file is not specified it simply uses dryon.cfg in the application folder,
 if not found it will be created at first run.
 The configuration file tells the bot which scripts to load, 
 they can be located anywhere provided that the bot have access to the files.
 
-Scripts coming with the bot:
+
+Scripts you get with the bot:
+
 scripts/warbot.rb: the actual script I use to manage my clan channel, rely on a MySQL database
 scripts/warbot.sma: the first script I was using before Ruby was implemented, you can see difference 
 							in size compared to the ruby one which do more things :)
