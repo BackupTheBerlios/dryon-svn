@@ -24,8 +24,8 @@
 \author Anthalir
 */
 
-#ifndef _AMXBOT_H
-#define _AMXBOT_H
+#ifndef _DRYON_H
+#define _DRYON_H
 
 #include <stdio.h>
 #include "basebot.h"
@@ -48,15 +48,15 @@ extern "C"
 /*!
 \brief bot's main class
 */
-class AMXBot : public BaseBot
+class DryonBot : public BaseBot
 {
 private:
 	void checkUserFlags(user_Info*, const string &dest);
 	bool welcome_received;
 
 public:
-	void AMXBot::updateFlags(const string &mask);
-	~AMXBot();
+	void DryonBot::updateFlags(const string &mask);
+	~DryonBot();
 	bool alreadyConnected(){ return welcome_received; }
 	void onConnected();
 	void onRegistered();
@@ -96,7 +96,7 @@ public:
 	void onChanModeChanged(const string &sender, const string &channel, const string &mode);
 };
 
-#endif // _AMXBOT_H
+#endif // _DRYON_H
 
 /**/
 

@@ -231,7 +231,7 @@ NATIVE(_isIDValid)
 }
 
 extern "C"
-void EXPORT amxbot_Timers_Init(Script *_p)
+void EXPORT dryon_Timers_Init(Script *_p)
 {
 	SmallScript *p= (SmallScript*)_p;
 	static AMX_NATIVE_INFO timers_Natives[] = {
@@ -247,19 +247,19 @@ void EXPORT amxbot_Timers_Init(Script *_p)
 }
 
 extern "C"
-void EXPORT amxbot_Timers_UnloadPlugin(Script *p)
+void EXPORT dryon_Timers_UnloadPlugin(Script *p)
 {
 	func_timer->removePluginEvents(p);
 }
 
 extern "C"
-void EXPORT amxbot_Timers_EndOfAMXCall(Script *p)
+void EXPORT dryon_Timers_EndOfAMXCall(Script *p)
 {
 
 }
 
 extern "C"
-void EXPORT amxbot_Timers_Cleanup(Script *p)
+void EXPORT dryon_Timers_Cleanup(Script *p)
 {
 	delete func_timer;
 }

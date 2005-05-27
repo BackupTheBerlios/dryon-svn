@@ -99,7 +99,7 @@ int srun_BuildScript(const char *name)
 
 	outfile= strdup(name);
 
-	argv[0]= "amxbot.compiler";
+	argv[0]= "dryon.compiler";
 	argv[1]= "-d1";
 	argv[2]= "-t0";
 	argv[3]= "-iinclude";

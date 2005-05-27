@@ -1465,7 +1465,7 @@ ruby_stop(ex)
     exit(ruby_cleanup(ex));
 }
 
-int
+EXPORT int
 ruby_exec()
 {
     volatile NODE *tmp;

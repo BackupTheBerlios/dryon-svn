@@ -199,26 +199,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="..\src\amxbot.cpp">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""
-						BasicRuntimeChecks="3"
-						BrowseInformation="1"/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						Optimization="2"
-						AdditionalIncludeDirectories=""
-						PreprocessorDefinitions=""/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath="..\src\Small\amx\amx\amxcore.c">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -280,6 +260,9 @@
 						AdditionalIncludeDirectories=""
 						PreprocessorDefinitions=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\src\dryon.cpp">
 			</File>
 			<File
 				RelativePath="..\src\log.cpp">
@@ -622,6 +605,9 @@
 			</File>
 			<File
 				RelativePath="..\src\config.h">
+			</File>
+			<File
+				RelativePath="..\src\dryon.h">
 			</File>
 			<File
 				RelativePath="..\src\log.h">

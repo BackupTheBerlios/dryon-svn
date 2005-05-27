@@ -25,7 +25,7 @@
 #include <math.h>
 
 #include "amx.h"
-#include "amxbot.h"
+#include "dryon.h"
 #include "utils.h"
 #include "script.h"
 #include "userfile.h"
@@ -33,7 +33,7 @@
 #include "tokens.h"
 #include "match.h"
 
-extern AMXBot bot;
+extern DryonBot bot;
 extern UserFile userfile;
 
 #if defined(WIN32)
@@ -52,7 +52,7 @@ extern ConsoleThread console;
 
 /****h* Small/Natives
 * INCLUDE FILE
-*	amxbot.inc
+*	dryon.inc
 * MODULE DESCRIPTION
 *	Functions useable in the scripts
 *
@@ -1731,7 +1731,7 @@ namespace Misc
 ***/
 	NATIVE(_bot_version)
 	{
-		copyStringToAMX(amx, params[1], VERSION, params[2]);
+		copyStringToAMX(amx, params[1], BOT_VERSION, params[2]);
 		return 0;
 	}
 
@@ -1883,7 +1883,7 @@ namespace Misc
 	}
 };
 
-AMX_NATIVE_INFO amxbot_natives[]= {
+AMX_NATIVE_INFO dryon_natives[]= {
 /*  misc  */
 {"debugPrint", 		_debug},
 {"registerCommand",	Misc::_registerCommand},
@@ -1965,9 +1965,9 @@ AMX_NATIVE_INFO amxbot_natives[]= {
 {NULL, NULL}
 };
 
-void registerAMXbotNatives(AMX *amx)
+void registerDryonBotNatives(AMX *amx)
 {
-	amx_Register(amx, amxbot_natives, -1);
+	amx_Register(amx, dryon_natives, -1);
 	registerNatives_String(amx);
 }
 

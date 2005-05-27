@@ -493,7 +493,7 @@ NATIVE(_get_DATEfield)
 
 extern "C"
 {
-	void EXPORT amxbot_MySQL_Init(Script *_p)
+	void EXPORT dryon_MySQL_Init(Script *_p)
 	{
 		SmallScript *p= (SmallScript*)_p;
 
@@ -512,7 +512,7 @@ extern "C"
 		amx_Register(p->getAMX(), db_natives, -1);
 	}
 
-	void EXPORT amxbot_MySQL_Cleanup(Script *p)
+	void EXPORT dryon_MySQL_Cleanup(Script *p)
 	{
 		for(uint i= 0; i< MAX_MYSQL_CONNECTIONS; i++)
 		{
@@ -525,7 +525,7 @@ extern "C"
 		}
 	}
 
-	void EXPORT amxbot_MySQL_UnloadPlugin(Script *p)
+	void EXPORT dryon_MySQL_UnloadPlugin(Script *p)
 	{
 		for(uint i= 0; i< MAX_MYSQL_CONNECTIONS; i++)
 		{
@@ -541,7 +541,7 @@ extern "C"
 		}
 	}
 
-	void EXPORT amxbot_MySQL_EndOfAMXCall(Script *p)
+	void EXPORT dryon_MySQL_EndOfAMXCall(Script *p)
 	{
 		uint i, c= 0;
 		// look for connections opened by this plugin

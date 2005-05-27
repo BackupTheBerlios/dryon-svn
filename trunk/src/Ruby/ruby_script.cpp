@@ -19,11 +19,11 @@
 #include "ruby_embed.h"
 #include "ruby_script.h"
 #include "log.h"
-#include "amxbot.h"
+#include "dryon.h"
 #include "tokens.h"
 #include "userfile.h"
 
-extern AMXBot bot;
+extern DryonBot bot;
 extern UserFile userfile;
 
 
@@ -79,7 +79,7 @@ bool RubyScript_isMe(RubyScript *r, user_Info *usr){ return (usr==bot.getBotUser
 * SINCE
 *	0.8
 ***/
-void RubyScript_registerCommand(RubyScript *r, string cmd, string func, char flag, string usage)
+void RubyScript_registerCommand(RubyScript *r, string cmd, string func, char flag, string usage= "")
 {
 	r->registerCommand(cmd, func, flag, usage);
 }
@@ -740,8 +740,8 @@ void chan_Info_ban(chan_Info *chan, user_Info *u){ bot.ban(chan->name, u->full_h
 * SINCE
 *	0.8
 ***/
-void chan_Info_kick(chan_Info *chan, string nick, string reason){ bot.kick(chan->name, nick, reason); }
-void chan_Info_kick(chan_Info *chan, user_Info *nick, string reason){ bot.kick(chan->name, nick->nick, reason); }
+void chan_Info_kick(chan_Info *chan, string nick, string reason= ""){ bot.kick(chan->name, nick, reason); }
+void chan_Info_kick(chan_Info *chan, user_Info *nick, string reason= ""){ bot.kick(chan->name, nick->nick, reason); }
 
 /****f* Channel/unban
 * USAGE

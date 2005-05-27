@@ -27,13 +27,13 @@
 #include <assert.h>
 #include <vector>
 #include "amx_script.h"
-#include "amxbot.h"
+#include "dryon.h"
 #include "amx.h"
 #include "natives.h"
 #include "utils.h"
 #include "userfile.h"
 
-//extern AMXBot bot;
+//extern DryonBot bot;
 extern DynamicExtensionsPool extPool;
 
 /* depends on AMX implementation */
@@ -121,7 +121,7 @@ DynamicExtension::~DynamicExtension()
 }
 
 // return true if function successfully called
-// call for Init will result in amxbot_<ModuleName>Init being called
+// call for Init will result in dryon_<ModuleName>Init being called
 bool DynamicExtension::call(Script *p, const char *name)
 {
 	bool ret;
@@ -135,7 +135,7 @@ bool DynamicExtension::call(Script *p, const char *name)
 	else
 	{
 		char func_name[100];
-		snprintf(func_name, sizeof(func_name)-1, "amxbot_%s_%s", root_name, name);
+		snprintf(func_name, sizeof(func_name)-1, "dryon_%s_%s", root_name, name);
 
 #if defined WIN32
 		lib_func= (FUNC)GetProcAddress(hlib, func_name);
@@ -276,7 +276,7 @@ SmallScript::SmallScript(const string &sma_path): program(NULL)
 				{
 					amx_SetCallback(&amx, amx_myCallback);
 					//amx_CoreInit(&amx);
-					registerAMXbotNatives(&amx);
+					registerDryonBotNatives(&amx);
 					loadExtensions();
 
 					err= amx_Register(&amx, NULL, -1);

@@ -15,7 +15,7 @@
 #define _NATIVES_H
 
 #include "amx.h"
-#include "amxbot.h"
+#include "dryon.h"
 
 using namespace std;
 
@@ -49,7 +49,7 @@ void copyStringToAMX(AMX *amx, cell dest, const char *input, int maxsize=-1, int
 int buildString(AMX *amx, cell *cstr, cell *params, int num);
 
 /* natives functions registration */
-void registerAMXbotNatives(AMX *amx);
+void registerDryonBotNatives(AMX *amx);
 void registerNatives_String(AMX *amx);
 
 bool findCharInAMXString(AMX *amx, cell str, char c);

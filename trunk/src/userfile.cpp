@@ -59,7 +59,7 @@ UserFile::~UserFile()
 }
 
 #define USERFILE_HEADER \
-"// for auth identification:\n" \
+"// for auth identification (Quakenet, GameSurge):\n" \
 "// a/AUTH\n" \
 "//\n" \
 "// for host/ident identification:\n" \
@@ -89,11 +89,14 @@ UserFile::~UserFile()
 #define USERFILE_TEMPLATE \
 USERFILE_HEADER \
 ACCOUNTS_HELP \
-"Everyone *!*@*\n\n" \
+"Everyone *@*\n\n" \
 GLOBAL_HELP \
+"Everyone nm\n" \
 "\n" \
 CHANNELS_HELP \
-"#dryon\n" \
+"#channel1\n" \
+"Everyone v\n" \
+"#channel2\n" \
 "Everyone v\n"
 
 // flags valid in userfile.txt
@@ -702,7 +705,7 @@ UsersData *UserFile::findAccount(string name)
 
 #ifdef TEST
 
-UserFile F("../amxbot/userfile.txt");
+UserFile F("../bin/userfile.txt");
 
 int main()
 {

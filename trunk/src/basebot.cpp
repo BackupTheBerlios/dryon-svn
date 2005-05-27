@@ -1270,7 +1270,7 @@ int BaseBot::processMessage(const IrcMessage &m)
 	// MODE
 	// -o+b Blade^Out *!___@AToulouse-102-1-1-230.w81-49.abo.wanadoo.fr
 	// :euroserv.fr.quakenet.org MODE #bidon2 +o o|Schmurfy[aw]
-	// -o+v AMXBot AMXBot
+	// -o+v dryon dryon
 	if( m.command=="MODE" )
 	{
 		uint i;
@@ -1539,7 +1539,7 @@ int BaseBot::processMessage(const IrcMessage &m)
 
 			if( parts[0]=="VERSION" )
 			{
-				sendMsgTo(m.senderNick, MODE_NOTICE_ONLY, "\001VERSION AMXBot " VERSION "\001");
+				sendMsgTo(m.senderNick, MODE_NOTICE_ONLY, "\001VERSION Dryon " BOT_VERSION "\001");
 				onCTCPVersion(m.senderNick);
 				return 0;
 			}

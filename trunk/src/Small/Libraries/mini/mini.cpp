@@ -65,7 +65,7 @@ NATIVE(_add_this)
 
 extern "C"
 {
-	void EXPORT amxbot_Mini_Init(Script *_p)
+	void EXPORT dryon_Mini_Init(Script *_p)
 	{
 		SmallScript *p= (SmallScript*)_p;
 		static AMX_NATIVE_INFO mini_Natives[] = {
@@ -76,17 +76,17 @@ extern "C"
 		Debug("**( Mini: loaded )**\n");
 	}
 
-	void EXPORT amxbot_Mini_UnloadPlugin(Script *p)
+	void EXPORT dryon_Mini_UnloadPlugin(Script *p)
 	{
 		Debug("**( Mini: plugin unloaded <%s> )**\n", p->getName());
 	}
 
-	void EXPORT amxbot_Mini_EndOfAMXCall(Script *p)
+	void EXPORT dryon_Mini_EndOfAMXCall(Script *p)
 	{
 		Debug("**( Mini: end of function call )**\n");
 	}
 
-	void EXPORT amxbot_Mini_Cleanup(Script *p)
+	void EXPORT dryon_Mini_Cleanup(Script *p)
 	{
 		Debug("**( Mini: unloaded )**\n");
 	}

@@ -57,7 +57,7 @@ HANDLE main_thread;
 #include <iostream>
 #include <fstream>
 
-#include "amxbot.h"
+#include "dryon.h"
 #include "script.h"
 #include "Small/amx_script.h"	// to remove asap
 #include "utils.h"
@@ -83,7 +83,7 @@ ServerList servers;
 ScriptManager PMgr;
 ConfigFileReader cfg;
 UserFile userfile;
-AMXBot bot;
+DryonBot bot;
 
 bool test_mode= false;
 bool help_mode= false;
@@ -164,7 +164,7 @@ int makeSanityChecks()
 {
 	int n= 0;
 
-#define NEWFILE(N) Output("* ++> "N" created.\n")
+#define NEWFILE(N) Output("* ++> default "N" created (edit it !).\n")
 
 	Output("** Sanity checks:\n");
 	Output("* checking folders...\n");
@@ -300,35 +300,35 @@ int makeSanityChecks()
 }
 
 // called when connected
-void AMXBot::onConnected()
+void DryonBot::onConnected()
 {
 	welcome_received= true;
 	PMgr.callEvent("event_onConnected");
 }
 
 // called when authed & registered with Qnet
-void AMXBot::onRegistered()
+void DryonBot::onRegistered()
 {
 	PMgr.callEvent("event_onRegistered");
 }
 
-void AMXBot::onBotExit()
+void DryonBot::onBotExit()
 {
 	PMgr.callEvent("event_onBotExit");
 }
 
-AMXBot::~AMXBot()
+DryonBot::~DryonBot()
 {
 	PMgr.unloadAllPlugins();
 }
 
-void AMXBot::onPing(const string &str)
+void DryonBot::onPing(const string &str)
 {
 	PMgr.ping();
 }
 
 
-void AMXBot::onJoin(const string &nick, const string &chan)
+void DryonBot::onJoin(const string &nick, const string &chan)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -340,7 +340,7 @@ void AMXBot::onJoin(const string &nick, const string &chan)
 	PMgr.callEvent("event_onJoin", "uc", u, ch);
 }
 
-void AMXBot::onBotJoined(const string &channel, const vector<string> &userlist)
+void DryonBot::onBotJoined(const string &channel, const vector<string> &userlist)
 {
 	chan_Info *ch;
 	GET_CHAN(ch, channel);
@@ -349,7 +349,7 @@ void AMXBot::onBotJoined(const string &channel, const vector<string> &userlist)
 }
 
 // update flags for user matching mask
-void AMXBot::updateFlags(const string &mask)
+void DryonBot::updateFlags(const string &mask)
 {
 	// retrieve all users matching mask
 	vector<user_Info *> ulist;
@@ -368,7 +368,7 @@ void AMXBot::updateFlags(const string &mask)
 }
 
 // set flags in the user_Info structure for this user
-void AMXBot::checkUserFlags(user_Info *usr, const string &dest)
+void DryonBot::checkUserFlags(user_Info *usr, const string &dest)
 {
 	if( !usr->flags_set )
 	{
@@ -418,7 +418,7 @@ void AMXBot::checkUserFlags(user_Info *usr, const string &dest)
 	}
 }
 
-void AMXBot::onPart(const string &nick, const string &chan)
+void DryonBot::onPart(const string &nick, const string &chan)
 {
 	chan_Info *ch;
 	user_Info *u;
@@ -437,7 +437,7 @@ void AMXBot::onPart(const string &nick, const string &chan)
 	}
 }
 
-void AMXBot::onQuit(const string &nick, const string &msg)
+void DryonBot::onQuit(const string &nick, const string &msg)
 {
 	user_Info *u;
 	GET_USR(u, nick);
@@ -446,7 +446,7 @@ void AMXBot::onQuit(const string &nick, const string &msg)
 	destroyUserData(nick);
 }
 
-void AMXBot::onPrivMsg(const string &sender, const string &dest, const string &msg)
+void DryonBot::onPrivMsg(const string &sender, const string &dest, const string &msg)
 {
 	vector<string> msg_parts;
 	Tokenize(msg, msg_parts, " ");
@@ -596,7 +596,7 @@ void AMXBot::onPrivMsg(const string &sender, const string &dest, const string &m
 	}
 }
 
-void AMXBot::onTopicChange(const string &nick, const string &chan, const string &new_topic)
+void DryonBot::onTopicChange(const string &nick, const string &chan, const string &new_topic)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -608,7 +608,7 @@ void AMXBot::onTopicChange(const string &nick, const string &chan, const string 
 	PMgr.callEvent("event_onTopicChange", "ucss", u, ch, oldtopic.c_str(), new_topic.c_str());
 }
 
-void AMXBot::onKick(const string &kicker, const string &chan, const string &kicked, const string &msg)
+void DryonBot::onKick(const string &kicker, const string &chan, const string &kicked, const string &msg)
 {
 	user_Info *u1;
 	user_Info *u2;
@@ -629,7 +629,7 @@ void AMXBot::onKick(const string &kicker, const string &chan, const string &kick
 	}
 }
 
-void AMXBot::onBotGainOp(const string &channel, const string &sender)
+void DryonBot::onBotGainOp(const string &channel, const string &sender)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -640,7 +640,7 @@ void AMXBot::onBotGainOp(const string &channel, const string &sender)
 	PMgr.callEvent("event_onBotOpped", "cu", ch, u);
 }
 
-void AMXBot::onBotLostOp(const string &channel, const string &sender)
+void DryonBot::onBotLostOp(const string &channel, const string &sender)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -650,7 +650,7 @@ void AMXBot::onBotLostOp(const string &channel, const string &sender)
 	PMgr.callEvent("event_onBotDeopped", "cu", ch, u);
 }
 
-void AMXBot::onBotGainVoice(const string &channel, const string &sender)
+void DryonBot::onBotGainVoice(const string &channel, const string &sender)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -660,7 +660,7 @@ void AMXBot::onBotGainVoice(const string &channel, const string &sender)
 	PMgr.callEvent("event_onBotVoiced", "cu", ch, u);
 }
 
-void AMXBot::onBotLostVoice(const string &channel, const string &sender)
+void DryonBot::onBotLostVoice(const string &channel, const string &sender)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -670,7 +670,7 @@ void AMXBot::onBotLostVoice(const string &channel, const string &sender)
 	PMgr.callEvent("event_onBotDevoiced", "cu", ch, u);
 }
 
-void AMXBot::onBotBanned(const string &channel, const string &sender, const string &banmask)
+void DryonBot::onBotBanned(const string &channel, const string &sender, const string &banmask)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -680,7 +680,7 @@ void AMXBot::onBotBanned(const string &channel, const string &sender, const stri
 	PMgr.callEvent("event_onBotBanned", "cus", ch, u, banmask.c_str());
 }
 
-void AMXBot::onBotUnBanned(const string &channel, const string &sender, const string &banmask)
+void DryonBot::onBotUnBanned(const string &channel, const string &sender, const string &banmask)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -690,7 +690,7 @@ void AMXBot::onBotUnBanned(const string &channel, const string &sender, const st
 	PMgr.callEvent("event_onBotUnbanned", "cus", ch, u, banmask.c_str());
 }
 
-void AMXBot::onServerOp(const string &channel, const string &target)
+void DryonBot::onServerOp(const string &channel, const string &target)
 {
 	user_Info *t;
 	chan_Info *ch;
@@ -700,7 +700,7 @@ void AMXBot::onServerOp(const string &channel, const string &target)
 	PMgr.callEvent("event_onServerOp", "cu", ch, t);
 }
 
-void AMXBot::onServerVoice(const string &channel, const string &target)
+void DryonBot::onServerVoice(const string &channel, const string &target)
 {
 	user_Info *t;
 	chan_Info *ch;
@@ -710,7 +710,7 @@ void AMXBot::onServerVoice(const string &channel, const string &target)
 	PMgr.callEvent("event_onServerVoice", "cu", ch, t);
 }
 
-void AMXBot::onServerRemoveOp(const string &channel, const string &target)
+void DryonBot::onServerRemoveOp(const string &channel, const string &target)
 {
 	user_Info *t;
 	chan_Info *ch;
@@ -720,7 +720,7 @@ void AMXBot::onServerRemoveOp(const string &channel, const string &target)
 	PMgr.callEvent("event_onServerRemoveOp", "cu", ch, t);
 }
 
-void AMXBot::onGainOp(const string &channel, const string &sender, const string &target)
+void DryonBot::onGainOp(const string &channel, const string &sender, const string &target)
 {
 	user_Info *u, *t;
 	chan_Info *ch;
@@ -731,7 +731,7 @@ void AMXBot::onGainOp(const string &channel, const string &sender, const string 
 	PMgr.callEvent("event_onOp", "cuu", ch, u, t);
 }
 
-void AMXBot::onServerRemoveVoice(const string &channel, const string &target)
+void DryonBot::onServerRemoveVoice(const string &channel, const string &target)
 {
 	user_Info *t;
 	chan_Info *ch;
@@ -741,7 +741,7 @@ void AMXBot::onServerRemoveVoice(const string &channel, const string &target)
 	PMgr.callEvent("event_onServerRemoveVoice", "cu", ch, t);
 }
 
-void AMXBot::onLostOp(const string &channel, const string &sender, const string &target)
+void DryonBot::onLostOp(const string &channel, const string &sender, const string &target)
 {
 	user_Info *u, *t;
 	chan_Info *ch;
@@ -752,7 +752,7 @@ void AMXBot::onLostOp(const string &channel, const string &sender, const string 
 	PMgr.callEvent("event_onDeOp", "cuu", ch, u, t);
 }
 
-void AMXBot::onGainVoice(const string &channel, const string &sender, const string &target)
+void DryonBot::onGainVoice(const string &channel, const string &sender, const string &target)
 {
 	user_Info *u, *t;
 	chan_Info *ch;
@@ -763,7 +763,7 @@ void AMXBot::onGainVoice(const string &channel, const string &sender, const stri
 	PMgr.callEvent("event_onVoice", "cuu", ch, u, t);
 }
 
-void AMXBot::onLostVoice(const string &channel, const string &sender, const string &target)
+void DryonBot::onLostVoice(const string &channel, const string &sender, const string &target)
 {
 	user_Info *u, *t;
 	chan_Info *ch;
@@ -774,7 +774,7 @@ void AMXBot::onLostVoice(const string &channel, const string &sender, const stri
 	PMgr.callEvent("event_onDeVoice", "cuu", ch, u, t);
 }
 
-void AMXBot::onBanned(const string &channel, const string &sender, const string &banmask)
+void DryonBot::onBanned(const string &channel, const string &sender, const string &banmask)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -784,7 +784,7 @@ void AMXBot::onBanned(const string &channel, const string &sender, const string 
 	PMgr.callEvent("event_onBan", "cus", ch, u, banmask.c_str());
 }
 
-void AMXBot::onUnBan(const string &channel, const string &sender, const string &banmask)
+void DryonBot::onUnBan(const string &channel, const string &sender, const string &banmask)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -794,7 +794,7 @@ void AMXBot::onUnBan(const string &channel, const string &sender, const string &
 	PMgr.callEvent("event_onUnBan", "cus", ch, u, banmask.c_str());
 }
 
-void AMXBot::onChanKeySet(const string &channel, const string &sender, const string &key)
+void DryonBot::onChanKeySet(const string &channel, const string &sender, const string &key)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -804,7 +804,7 @@ void AMXBot::onChanKeySet(const string &channel, const string &sender, const str
 	PMgr.callEvent("event_onChanKeySet", "cus", ch, u, key.c_str());
 }
 
-void AMXBot::onChanKeyRemoved(const string &channel, const string &sender)
+void DryonBot::onChanKeyRemoved(const string &channel, const string &sender)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -814,7 +814,7 @@ void AMXBot::onChanKeyRemoved(const string &channel, const string &sender)
 	PMgr.callEvent("event_onChanKeyRemoved", "cu", ch, u);
 }
 
-void AMXBot::onChanModeChanged(const string &sender, const string &channel, const string &mode)
+void DryonBot::onChanModeChanged(const string &sender, const string &channel, const string &mode)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -825,7 +825,7 @@ void AMXBot::onChanModeChanged(const string &sender, const string &channel, cons
 }
 
 
-void AMXBot::onNickChange(const string &oldnick, const string &newnick)
+void DryonBot::onNickChange(const string &oldnick, const string &newnick)
 {
 	user_Info *usr;
 	GET_USR(usr, oldnick);
@@ -838,7 +838,7 @@ void AMXBot::onNickChange(const string &oldnick, const string &newnick)
 	PMgr.callEvent("event_onNickChange", "su", oldnick.c_str(), usr);
 }
 
-void AMXBot::onCTCPAction(const string &action, const string &user, const string &channel)
+void DryonBot::onCTCPAction(const string &action, const string &user, const string &channel)
 {
 	user_Info *u;
 	chan_Info *ch;
@@ -1033,7 +1033,7 @@ else
 #if defined(WIN32)
 
 WSACleanup();
-Output("%sBot exited successfully.%s\n", COLOR_GREEN, COLOR_RESET);
+Output("%sBot exited successfully, you can now close the window.%s\n", COLOR_GREEN, COLOR_RESET);
 //	console.requestEnd();
 //	console.waitEnd();
 

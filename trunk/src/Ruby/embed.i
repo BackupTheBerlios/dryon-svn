@@ -87,7 +87,8 @@ public:
 %}
 %extend RubyScript {
 %immutable;
-	%name(bot_nick) string nick;
+	%rename(bot_nick) nick;
+	string nick;
 	int max_nicklen;
 	int max_topiclen;
 %mutable;
@@ -127,7 +128,8 @@ public:
 // User
 //
 
-%name(User) class user_Info {};
+%rename(User) user_Info;
+class user_Info {};
 %{
 string *user_Info_nick_get(user_Info *usr);
 string *user_Info_account_name_get(user_Info *usr);
@@ -180,7 +182,8 @@ string user_Info_to_s(user_Info *);
 // Channel
 //
 
-%name(Channel) class chan_Info {};
+%rename(Channel) chan_Info;
+class chan_Info {};
 %{
 	string chan_Info_name_get(chan_Info *chan);
 

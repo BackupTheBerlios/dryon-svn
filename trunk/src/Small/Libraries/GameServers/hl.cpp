@@ -621,7 +621,7 @@ NATIVE(_rcon_cmd)
 
 extern "C"
 {
-	void EXPORT amxbot_GameServers_Init(Script *_p)
+	void EXPORT dryon_GameServers_Init(Script *_p)
 	{
 		SmallScript *p= (SmallScript*)_p;
 		static AMX_NATIVE_INFO gameservers_Natives[] = {
@@ -638,12 +638,12 @@ extern "C"
 		amx_Register(p->getAMX(), gameservers_Natives, -1);
 	}
 
-	void EXPORT amxbot_GameServers_UnloadPlugin(Script *p)
+	void EXPORT dryon_GameServers_UnloadPlugin(Script *p)
 	{
 
 	}
 
-	void EXPORT amxbot_GameServers_EndOfAMXCall(Script *p)
+	void EXPORT dryon_GameServers_EndOfAMXCall(Script *p)
 	{
 
 	}

@@ -17,10 +17,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "termwin.h"
-#include "amxbot.h"
+#include "dryon.h"
 #include "../MSVC/resource.h"
 
-extern AMXBot bot;
+extern DryonBot bot;
 extern ConsoleThread console;
 extern bool test_mode;
 extern DWORD main_thread;
@@ -174,8 +174,8 @@ HWND ConsoleThread::CreateConsole(HINSTANCE hinst,HWND hwndParent,int columns,in
 
 	/* create the window */
 	InitWindowClass(hinst);
-	//con->hwnd= CreateWindow( "TermWin:Console", "AMXBot console", style, 0,0,0,0, hwndParent, NULL, hinst, NULL);
-	con->hwnd= CreateWindowEx(0, "TermWin:Console", "AMXBot Console", style, 0,0,0,0, dummy_win, NULL, hinst, 0);
+	//con->hwnd= CreateWindow( "TermWin:Console", "Dryon console", style, 0,0,0,0, hwndParent, NULL, hinst, NULL);
+	con->hwnd= CreateWindowEx(0, "TermWin:Console", "Dryon Console", style, 0,0,0,0, dummy_win, NULL, hinst, 0);
 
 	memset(&nid, 0, sizeof(nid));
 	nid.cbSize= sizeof(NOTIFYICONDATA);
@@ -185,7 +185,7 @@ HWND ConsoleThread::CreateConsole(HINSTANCE hinst,HWND hwndParent,int columns,in
 	nid.uCallbackMessage= UWM_SYSTRAY;
 	nid.hIcon= (HICON)LoadImage(hinst, MAKEINTRESOURCE(IDI_SYSTRAY), IMAGE_ICON,
 					GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON), 0);
-	strcpy(nid.szTip, "AMXBot");
+	strcpy(nid.szTip, "Dryon");
 	if( !Shell_NotifyIcon(NIM_ADD, &nid) )
 		MessageBox(con->hwnd, "Unable to display systray icon", "Error", MB_OK);
 
@@ -438,6 +438,16 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 			bot.quit("window closed");
 		stop= true;
 		break;
+
+	case WM_DESTROY:
+		nid.cbSize= sizeof(NOTIFYICONDATA);
+		nid.hWnd= hwnd;
+		nid.uID= 1;
+		Shell_NotifyIcon(NIM_DELETE, &nid);
+		if( (con=Hwnd2Console(hwnd))!=NULL )
+			DoDeleteConsole(con);
+		break;
+
 /*
 	case WM_MOVE:
 		if ((con=Hwnd2Console(NULL))!=NULL)
@@ -475,15 +485,6 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 			SetWindowPos(hwnd, NULL, rect.left ,rect.top, rect.right-rect.left, rect.bottom-rect.top, SWP_NOZORDER);
 		}
 		return 0;
-
-	case WM_DESTROY:
-		nid.cbSize= sizeof(NOTIFYICONDATA);
-		nid.hWnd= hwnd;
-		nid.uID= 1;
-		Shell_NotifyIcon(NIM_DELETE, &nid);
-		if( (con=Hwnd2Console(hwnd))!=NULL )
-			DoDeleteConsole(con);
-		break;
 
 	case WM_RBUTTONUP:
 

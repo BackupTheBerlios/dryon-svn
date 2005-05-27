@@ -17,13 +17,13 @@
 #include "script.h"
 #include "userfile.h"
 #include "utils.h"
-#include "amxbot.h"
+#include "dryon.h"
 #include "thread.h"
 
 #include "Small/amx_script.h"
 #include "Ruby/ruby_script.h"
 
-extern AMXBot bot;
+extern DryonBot bot;
 
 Script::Script() : state(PLUGIN_RUNNING), loading_ok(true)
 {

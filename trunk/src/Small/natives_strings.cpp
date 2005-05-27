@@ -159,7 +159,7 @@ NATIVE(_strstri)
 *	s1 		: first string
 *	s2 		: second string
 * NOTES
-*	function implemented in amxbot.inc
+*	function implemented in dryon.inc
 *	using strnmatch
 * SINCE
 *	0.1
@@ -203,7 +203,7 @@ NATIVE(_strnmatch)
 *	s1 		: first string
 *	s2 		: second string
 * NOTES
-*	function implemented in amxbot.inc
+*	function implemented in dryon.inc
 *	using strnmatchi (case insensitive)
 * SINCE
 *	0.6
