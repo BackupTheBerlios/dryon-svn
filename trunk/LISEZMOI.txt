@@ -1,0 +1,71 @@
+
+Dryon IRC Bot écris by Julien Ammous ( julien.a@laposte.net )
+pour plus infos: http://dryon.berlios.de
+
+
+Qu'est ce que Dryon ?
+--------------------
+Dryon est un bot IRC précédemment connu sous le nom d'amxbot, il est né du fait que je n'étais pas satisfait par
+les bots irc existants. Je l'utilise tous les jours pour gérer un canal de clan donc je pense pouvoir dire qu' il lui a été
+fait tout ce qui est possible et qu' il devrait maintenant tourner sans problèmes, mon bot de test tourne sous
+FreeBSD.
+C'est un bot scriptable, les scripts peuvent etre écris en Small, un language venant de Compuphase (plus rapide que
+Ruby mais les scripts sont plus gros et plus difficile à écrire, pas difficile mais plus difficile comparé au Ruby :)  ) ou
+en Ruby (language de script orienté objet et vraiment puissant).
+
+Platformes supportées:
+--------------------
+- FreeBSD (4.xx)
+- Linux
+- Windows XP (requiers plus de test)
+
+
+Pour compiler:
+----------
+Pour freebsd et linux:
+	make
+	
+Pour windows je fourni un project Visual Studio 6 mais je ne l'utilise plus donc certaines modifications peuvent etre 
+requises, et le projet Visual Studio .NET est celui que j'utilise pour compiler les versions windows donc il devrait
+marcher pour vous.
+Je n'ai pas réussi à le compiler avec un autre compilateur sous windows, si vous réussissez merci de me le dire. 
+
+Pour faire tourner Dryon:
+-----------------------
+
+dryon [<fichier_de_config>]
+
+Si le fichier de configuration n'est pas spécifié il utilisera simplement dryon.cfg dans le dossier de l'application,
+si il n'est pas trouvé au lancement il sera crée.
+Le fichier de configuration dit au bot quels scripts charger,
+Ils peuvent être situés n'importe ou du moment que le bot y a accès.
+
+Les scripts fournis avec le bot:
+
+scripts/warbot.rb: le script que j'utilise pour gérer mon canal de clan, il utilise une base de donnée MySQL.
+
+scripts/warbot.sma: la première version du script en Small que j'utilisais avant que le Ruby ne soit implémenté,
+	vous pouvez constater la différence de taille comparé à sa version Ruby qui est plus petite et qui fait beaucoup plus :)
+
+bin/scripts/debug.rb: Le seul but de ce script est simplement d'utiliser tous les évenements à la dispositions des scripts et
+	d'écrire un message sur la console.
+
+bin/scripts/main.rb: (doit être utilisé sauf si vous savez ce que vous faites) Ce script défini les commandes de base, 
+	J'ai déplacé une grosse partie des commandes du bot depuis le fichier éxécutable vers ce script ce qi permet aux utilisateurs
+	de modifier le comportement du bot selon leurs souhaits.
+	
+bin/scripts/topic_save.rb: un petit script que j'ai écris pour sauver/restaurer le topic d' un canal (le message de bienvenue) d'un canal donnée,
+	il sauve letopic sur le disque et le restaure si besoin.
+	
+	
+	
+Lors du premier lancement deux autres fichiers sont également crées:
+
+servers.txt: Il contient tout simplement la liste des serveurs auxquels se connecter, si il y a une erreur avec le premier il essaye le suivant, etc...
+userfile.txt: Il contient les droit d'accès au bot.
+
+Ces deux fichiers sont auto documentés, regardez leur contenu.
+
+Sans même éditer ces fichiers le bot tournera et se connectera sur GameSurge par défaut, s'appellera dryon et considérera n'importe qui sur le
+réseau irc comme un admin.
+Pour connaitre les commandes du bot tapez !help sur un canal ou le bot est ou envoyez lui en message privé.

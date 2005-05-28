@@ -324,6 +324,7 @@ DryonBot::~DryonBot()
 
 void DryonBot::onPing(const string &str)
 {
+	PMgr.callEvent("event_onPing");
 	PMgr.ping();
 }
 

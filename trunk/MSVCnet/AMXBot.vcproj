@@ -3,6 +3,7 @@
 	ProjectType="Visual C++"
 	Version="7.10"
 	Name="Dryon"
+	ProjectGUID="{4FE1CFBD-5D00-44FC-96A0-C1859A1DE095}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>

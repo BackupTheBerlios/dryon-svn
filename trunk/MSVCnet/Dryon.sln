@@ -1,0 +1,75 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dryon", "AMXBot.vcproj", "{8E483E61-2FC0-4242-9305-29CFF555C341}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5} = {2C4DD4EB-0581-468F-8485-611E9E0BD3F5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameServers", "GameServers.vcproj", "{DB433470-B45C-4628-A95C-C27837CC5B90}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySQL", "MySQL.vcproj", "{F2F542B7-82E2-4406-89CD-E076FAC11EC0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySQL_Ruby", "MySQL_Ruby.vcproj", "{80E1269A-3079-47AF-8731-07E7E0364B10}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5} = {2C4DD4EB-0581-468F-8485-611E9E0BD3F5}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Ruby_dll", "Ruby_dll.vcproj", "{2C4DD4EB-0581-468F-8485-611E9E0BD3F5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Timers", "Timers.vcproj", "{5148A838-8EA2-4D02-8956-E3069D519E1C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "miniLib", "miniLib.vcproj", "{F1DD72A7-D39E-4D50-8ECA-F3DCCFFF9164}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{CEFDDCE9-B5CA-4A55-AAFC-7271D5351131}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8E483E61-2FC0-4242-9305-29CFF555C341}.Debug.ActiveCfg = Debug|Win32
+		{8E483E61-2FC0-4242-9305-29CFF555C341}.Debug.Build.0 = Debug|Win32
+		{8E483E61-2FC0-4242-9305-29CFF555C341}.Release.ActiveCfg = Release|Win32
+		{8E483E61-2FC0-4242-9305-29CFF555C341}.Release.Build.0 = Release|Win32
+		{DB433470-B45C-4628-A95C-C27837CC5B90}.Debug.ActiveCfg = Debug|Win32
+		{DB433470-B45C-4628-A95C-C27837CC5B90}.Debug.Build.0 = Debug|Win32
+		{DB433470-B45C-4628-A95C-C27837CC5B90}.Release.ActiveCfg = Release|Win32
+		{DB433470-B45C-4628-A95C-C27837CC5B90}.Release.Build.0 = Release|Win32
+		{F2F542B7-82E2-4406-89CD-E076FAC11EC0}.Debug.ActiveCfg = Debug|Win32
+		{F2F542B7-82E2-4406-89CD-E076FAC11EC0}.Debug.Build.0 = Debug|Win32
+		{F2F542B7-82E2-4406-89CD-E076FAC11EC0}.Release.ActiveCfg = Release|Win32
+		{F2F542B7-82E2-4406-89CD-E076FAC11EC0}.Release.Build.0 = Release|Win32
+		{80E1269A-3079-47AF-8731-07E7E0364B10}.Debug.ActiveCfg = Debug|Win32
+		{80E1269A-3079-47AF-8731-07E7E0364B10}.Debug.Build.0 = Debug|Win32
+		{80E1269A-3079-47AF-8731-07E7E0364B10}.Release.ActiveCfg = Release|Win32
+		{80E1269A-3079-47AF-8731-07E7E0364B10}.Release.Build.0 = Release|Win32
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5}.Debug.ActiveCfg = Debug|Win32
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5}.Debug.Build.0 = Debug|Win32
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5}.Release.ActiveCfg = Release|Win32
+		{2C4DD4EB-0581-468F-8485-611E9E0BD3F5}.Release.Build.0 = Release|Win32
+		{5148A838-8EA2-4D02-8956-E3069D519E1C}.Debug.ActiveCfg = Debug|Win32
+		{5148A838-8EA2-4D02-8956-E3069D519E1C}.Debug.Build.0 = Debug|Win32
+		{5148A838-8EA2-4D02-8956-E3069D519E1C}.Release.ActiveCfg = Release|Win32
+		{5148A838-8EA2-4D02-8956-E3069D519E1C}.Release.Build.0 = Release|Win32
+		{F1DD72A7-D39E-4D50-8ECA-F3DCCFFF9164}.Debug.ActiveCfg = Debug|Win32
+		{F1DD72A7-D39E-4D50-8ECA-F3DCCFFF9164}.Release.ActiveCfg = Release|Win32
+		{CEFDDCE9-B5CA-4A55-AAFC-7271D5351131}.Debug.ActiveCfg = Debug
+		{CEFDDCE9-B5CA-4A55-AAFC-7271D5351131}.Release.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
