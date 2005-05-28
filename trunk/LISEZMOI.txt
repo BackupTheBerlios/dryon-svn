@@ -13,6 +13,8 @@ C'est un bot scriptable, les scripts peuvent etre écris en Small, un language ve
 Ruby mais les scripts sont plus gros et plus difficile à écrire, pas difficile mais plus difficile comparé au Ruby :)  ) ou
 en Ruby (language de script orienté objet et vraiment puissant).
 
+
+
 Platformes supportées:
 --------------------
 - FreeBSD (4.xx)
@@ -22,11 +24,11 @@ Platformes supportées:
 
 Pour compiler:
 ----------
-Pour freebsd et linux:
-	make
+Pour freebsd et linux: (le fichire éxécutable et les librairies sont crées dans le dossier bin)
+	cd src && make
 	
 Pour windows je fourni un project Visual Studio 6 mais je ne l'utilise plus donc certaines modifications peuvent etre 
-requises, et le projet Visual Studio .NET est celui que j'utilise pour compiler les versions windows donc il devrait
+requises, et le projet Visual Studio .NET qui est celui que j'utilise pour compiler les versions windows donc il devrait
 marcher pour vous.
 Je n'ai pas réussi à le compiler avec un autre compilateur sous windows, si vous réussissez merci de me le dire. 
 
@@ -44,8 +46,10 @@ Les scripts fournis avec le bot:
 
 scripts/warbot.rb: le script que j'utilise pour gérer mon canal de clan, il utilise une base de donnée MySQL.
 
-scripts/warbot.sma: la première version du script en Small que j'utilisais avant que le Ruby ne soit implémenté,
+scripts/warbot.sma: la première version du script en Small que j'utilisais avant que j'implémente le Ruby,
 	vous pouvez constater la différence de taille comparé à sa version Ruby qui est plus petite et qui fait beaucoup plus :)
+	Je le laisse en tant que référence pour voir comment faire telle ou telle chose dans chaque language et vous pouvez
+	l'utiliser pour décider quel language utiliser.
 
 bin/scripts/debug.rb: Le seul but de ce script est simplement d'utiliser tous les évenements à la dispositions des scripts et
 	d'écrire un message sur la console.
@@ -64,8 +68,51 @@ Lors du premier lancement deux autres fichiers sont également crées:
 servers.txt: Il contient tout simplement la liste des serveurs auxquels se connecter, si il y a une erreur avec le premier il essaye le suivant, etc...
 userfile.txt: Il contient les droit d'accès au bot.
 
-Ces deux fichiers sont auto documentés, regardez leur contenu.
+Ces deux fichiers sont documentés avec des commentaires, regardez les pour plus d'informations.
 
 Sans même éditer ces fichiers le bot tournera et se connectera sur GameSurge par défaut, s'appellera dryon et considérera n'importe qui sur le
 réseau irc comme un admin.
 Pour connaitre les commandes du bot tapez !help sur un canal ou le bot est ou envoyez lui en message privé.
+
+Commandes de base:
+-------------------
+
+:join <channel>
+:part <channel>
+	demande au bot de rejoindre un canal
+	ask the bot to join/part <channel>
+	
+:nick <new_nick>
+	ask the bot to change its nick
+	
+:action <channel> <action_msg>
+	ask the bot to perform an action on given channel (/me)
+	
+:say <channel> <text>
+	ask the bot to say something on the channel
+	
+
+	------------------
+	
+:scripts
+	gives a list of the actually loaded scripts
+	
+:userlist
+	Display a list of the current access rights for each users
+	same data as in userfile.txt
+	
+:reload
+	unload all the currently loaded scripts, reload the config file
+	and then reload all the scripts declared in it.
+	
+:adduser <account> <hostmask>/<#auth> [<global_flags>]
+	account is the name which will be used to reference the user
+	hostmask is used to recognize the user
+	global_flags are the flags to apply to him (look in userfile.txt for details)
+	
+:deluser <account>
+	remove a user access rigths
+
+:setflags <account> _global_ <flags>
+:setflags <account> <chan> <flags>
+	set the user flags on al channels (global) or on a specific channel.
