@@ -1,4 +1,4 @@
-//Microsoft Developer Studio generated resource script.
+// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// French (France) resources
+// Français (France) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FRA)
 #ifdef _WIN32
@@ -27,18 +27,18 @@ LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE DISCARDABLE 
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE DISCARDABLE 
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE DISCARDABLE 
+3 TEXTINCLUDE 
 BEGIN
     "\r\n"
     "\0"
@@ -54,22 +54,23 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-IDI_SYSTRAY             ICON    DISCARDABLE     "icon1.ico"
+IDI_SYSTRAY             ICON                    "icon1.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Menu
 //
 
-IDR_MENU1 MENU DISCARDABLE 
+IDR_MENU1 MENU 
 BEGIN
     POPUP "Main"
     BEGIN
         MENUITEM "Hide",                        IDM_HIDESHOW
+        MENUITEM "Exit",                        IDM_EXIT
     END
 END
 
-#endif    // French (France) resources
+#endif    // Français (France) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

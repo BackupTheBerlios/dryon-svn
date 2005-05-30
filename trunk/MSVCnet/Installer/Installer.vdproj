@@ -4,9 +4,9 @@
 "ProjectType" = "8:{2C2AF0D9-9B47-4FE5-BEF2-169778172667}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:Installer"
-"LanguageId" = "3:1036"
+"LanguageId" = "3:1033"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1036"
+"UILanguageId" = "3:1033"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -87,6 +87,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_495F092D75994BC79E12EE36B966F065"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_50FB037F1211401EAF70FCC1D9B28175"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -141,7 +147,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_87FF4B869783B422B0DCF296557E84F9"
+        "OwnerKey" = "8:_21FE9F36D7874CE09A0F5B15315974E4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8B0B6F2AC76740A682FFBB85FBB40811"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8CD702AB82C54B27AFDA9DAE3D5B5094"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -201,20 +219,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_EB57BB1C65A4411AA1D94608E02684CE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_EF15B65BE2CF4F6EB629B24DF1C579E5"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EF252A88C5DF9C8BC827C2AB2EEC3B94"
-        "OwnerKey" = "8:_21FE9F36D7874CE09A0F5B15315974E4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -507,6 +513,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{A582A373-4685-4296-BEFE-614B80A702C3}:_495F092D75994BC79E12EE36B966F065"
+            {
+            "SourcePath" = "8:..\\..\\LISEZMOI.txt"
+            "TargetName" = "8:LISEZMOI.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_74178F86ED0F4FA0BC717795B854181A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_50FB037F1211401EAF70FCC1D9B28175"
             {
             "SourcePath" = "8:..\\..\\bin\\libs\\ruby\\lib\\parsedate.rb"
@@ -667,12 +693,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{A582A373-4685-4296-BEFE-614B80A702C3}:_87FF4B869783B422B0DCF296557E84F9"
+            {
+            "SourcePath" = "8:Ruby_bot.dll"
+            "TargetName" = "8:Ruby_bot.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_74178F86ED0F4FA0BC717795B854181A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_8B0B6F2AC76740A682FFBB85FBB40811"
             {
             "SourcePath" = "8:..\\..\\bin\\include\\gameservers.inc"
             "TargetName" = "8:gameservers.inc"
             "Tag" = "8:"
             "Folder" = "8:_A016F99796064E7787269FBE68CB7471"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{A582A373-4685-4296-BEFE-614B80A702C3}:_8CD702AB82C54B27AFDA9DAE3D5B5094"
+            {
+            "SourcePath" = "8:..\\..\\README.txt"
+            "TargetName" = "8:README.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_74178F86ED0F4FA0BC717795B854181A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -807,26 +873,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{A582A373-4685-4296-BEFE-614B80A702C3}:_EB57BB1C65A4411AA1D94608E02684CE"
-            {
-            "SourcePath" = "8:..\\..\\README"
-            "TargetName" = "8:README"
-            "Tag" = "8:"
-            "Folder" = "8:_74178F86ED0F4FA0BC717795B854181A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_EF15B65BE2CF4F6EB629B24DF1C579E5"
             {
             "SourcePath" = "8:..\\..\\bin\\docs\\Small.html"
@@ -845,26 +891,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{A582A373-4685-4296-BEFE-614B80A702C3}:_EF252A88C5DF9C8BC827C2AB2EEC3B94"
-            {
-            "SourcePath" = "8:Ruby_bot.dll"
-            "TargetName" = "8:Ruby_bot.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_74178F86ED0F4FA0BC717795B854181A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{A582A373-4685-4296-BEFE-614B80A702C3}:_F275A40F37D1497B811A1A34B263A32B"
@@ -1024,20 +1050,20 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1036"
+        "LangId" = "3:1033"
         }
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Dryon"
         "ProductCode" = "8:{6B3E6E60-EB46-4075-AF7E-EAE01E29CAEC}"
-        "PackageCode" = "8:{269A04D1-CE03-4B18-A8C7-BC37E778A944}"
+        "PackageCode" = "8:{C8854A63-F027-4ACE-BDD4-D9ABF65032A9}"
         "UpgradeCode" = "8:{3BD31B8C-A2CE-4631-AD6F-9EC2E0515CD0}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "ProductVersion" = "8:0.9.0"
-        "Manufacturer" = "8:"
+        "Manufacturer" = "8:Dryon"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Dryon"
@@ -1151,12 +1177,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:101"
             "Transitive" = "11:FALSE"
             "Target" = "8:_21FE9F36D7874CE09A0F5B15315974E4"
             "Folder" = "8:_F626709A2F204CE69803CC702F7E3DF3"
             "WorkingFolder" = "8:_74178F86ED0F4FA0BC717795B854181A"
-            "Icon" = "8:"
+            "Icon" = "8:_21FE9F36D7874CE09A0F5B15315974E4"
             "Feature" = "8:"
             }
         }
@@ -1713,6 +1739,9 @@
                 {
                 }
             }
+        }
+        "VJSharpPlugin"
+        {
         }
     }
 }

@@ -68,6 +68,9 @@ Global
 		{CEFDDCE9-B5CA-4A55-AAFC-7271D5351131}.Debug.ActiveCfg = Debug
 		{CEFDDCE9-B5CA-4A55-AAFC-7271D5351131}.Release.ActiveCfg = Release
 	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		Dryon.vsd = Dryon.vsd
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
 	GlobalSection(ExtensibilityAddIns) = postSolution

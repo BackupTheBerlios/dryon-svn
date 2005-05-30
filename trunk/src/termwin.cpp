@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include "termwin.h"
 #include "dryon.h"
-#include "../MSVC/resource.h"
+#include "../MSVCNet/resource.h"
 
 extern DryonBot bot;
 extern ConsoleThread console;
@@ -163,7 +163,7 @@ HWND ConsoleThread::CreateConsole(HINSTANCE hinst,HWND hwndParent,int columns,in
 	if( hinst==NULL )
 		hinst= GetModuleHandle(NULL);
 
-	DWORD	style= WS_THICKFRAME | WS_CAPTION | WS_CLIPCHILDREN | WS_CLIPSIBLINGS  | WS_SYSMENU  | /*WS_VSCROLL |*/ WS_SIZEBOX /*| WS_MINIMIZEBOX*/;
+	DWORD	style= WS_THICKFRAME | WS_CAPTION | WS_CLIPCHILDREN | WS_CLIPSIBLINGS  | WS_SYSMENU  | /*WS_VSCROLL |*/ WS_SIZEBOX | WS_MINIMIZEBOX;
 	if( !hidden_launch )
 		style|= WS_VISIBLE;
 
@@ -206,7 +206,8 @@ HWND ConsoleThread::CreateConsole(HINSTANCE hinst,HWND hwndParent,int columns,in
 	/* check whether all is ok */
 	if( IsWindow(con->hwnd) && con->buffer!=NULL )
 		return con->hwnd;
-	/* when we arrive here, something was initialized correctly */
+
+	/* when we arrive here, something happenned */
 	DoDeleteConsole(con);
 	return NULL;
 }
@@ -434,18 +435,23 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 	switch (message)
 	{
 	case WM_CLOSE:
+		nid.cbSize= sizeof(NOTIFYICONDATA);
+		nid.hWnd= hwnd;
+		nid.uID= 1;
+
+		if( !Shell_NotifyIcon(NIM_DELETE, &nid))
+			MessageBox(hwnd, "unable to remove systray icon", "error", MB_OK);
+
+		//if( (con=Hwnd2Console(hwnd))!=NULL )
+		//	DoDeleteConsole(con);
+
 		if( !test_mode )
 			bot.quit("window closed");
+
 		stop= true;
 		break;
 
 	case WM_DESTROY:
-		nid.cbSize= sizeof(NOTIFYICONDATA);
-		nid.hWnd= hwnd;
-		nid.uID= 1;
-		Shell_NotifyIcon(NIM_DELETE, &nid);
-		if( (con=Hwnd2Console(hwnd))!=NULL )
-			DoDeleteConsole(con);
 		break;
 
 /*
@@ -510,8 +516,9 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 		switch( lParam )
 		{
 		case WM_LBUTTONUP:
-			if( !state_hidden )
-				SetForegroundWindow(hwnd);
+			ShowWindow(hwnd, SW_SHOW);
+			ShowWindow(hwnd, SW_RESTORE);
+			state_hidden= false;
 			break;
 
 		case WM_RBUTTONUP:
@@ -528,13 +535,19 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 				if( state_hidden )
 				{
 					ShowWindow(hwnd, SW_SHOW);
+					ShowWindow(hwnd, SW_RESTORE);
 					state_hidden= false;
 				}
 				else
 				{
+					ShowWindow(hwnd, SW_MINIMIZE);
 					ShowWindow(hwnd, SW_HIDE);
 					state_hidden= true;
 				}
+				break;
+			
+			case IDM_EXIT:
+				PostMessage(hwnd, WM_CLOSE, 0, 0);
 				break;
 			}
 			break;

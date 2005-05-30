@@ -623,6 +623,9 @@
 				RelativePath="..\src\regex.h">
 			</File>
 			<File
+				RelativePath=".\resource.h">
+			</File>
+			<File
 				RelativePath="..\src\Ruby\ruby_embed.h">
 			</File>
 			<File
