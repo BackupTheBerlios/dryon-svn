@@ -517,6 +517,7 @@ long CALLBACK ConsoleThread::ConsoleFunc(HWND hwnd,unsigned message,WPARAM wPara
 		{
 		case WM_LBUTTONUP:
 			ShowWindow(hwnd, SW_SHOW);
+			SetForegroundWindow(hwnd);
 			ShowWindow(hwnd, SW_RESTORE);
 			state_hidden= false;
 			break;
