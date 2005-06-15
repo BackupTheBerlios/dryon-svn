@@ -14,11 +14,11 @@
 struct server_info
 {
 %immutable;
-	string address;
+	%name(address) string addr;
 	string hostname;
 	string curmap;
-	string gamedir;
-	string gamedesc;
+	%name(gamedir) string gdir;
+	%name(gamedesc) string gdesc;
 	string country;
 	int cur_clients;
 	int max_clients;
@@ -32,12 +32,13 @@ public:
 };
 
 %{
-	int HLServer_ping(const char *host, port= 27015);
+	int HLServer_ping(HLServer*, const char *, int port= 27015);
+	server_info *HLServer_get_infos(HLServer*, string, int);
 %}
 %extend HLServer
 {
 public:
-	int ping(const char *host, port= 27015);
+	int ping(const char *host, int port= 27015);
 	server_info *get_infos(string server_addr, int port);
 };
 

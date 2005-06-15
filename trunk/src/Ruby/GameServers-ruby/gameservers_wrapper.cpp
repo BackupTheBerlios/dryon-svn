@@ -617,9 +617,8 @@ type_error:
 
 #define  SWIGTYPE_p_server_info swig_types[0] 
 #define  SWIGTYPE_p_HLServer swig_types[1] 
-#define  SWIGTYPE_p_port swig_types[2] 
-#define  SWIGTYPE_p_string swig_types[3] 
-static swig_type_info *swig_types[5];
+#define  SWIGTYPE_p_string swig_types[2] 
+static swig_type_info *swig_types[4];
 
 /* -------- TYPES TABLE (END) -------- */
 
@@ -637,7 +636,8 @@ static void free_server_info(server_info *);
 swig_class cHLServer;
 static void free_HLServer(HLServer *);
 
-	int HLServer_ping(const char *host, port= 27015);
+	int HLServer_ping(HLServer*, const char *, int port= 27015);
+	server_info *HLServer_get_infos(HLServer*, string, int);
 
 static VALUE
 _wrap_HLServerInfos_address_get(int argc, VALUE *argv, VALUE self) {
@@ -648,7 +648,7 @@ _wrap_HLServerInfos_address_get(int argc, VALUE *argv, VALUE self) {
     if ((argc < 0) || (argc > 0))
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc);
     SWIG_ConvertPtr(self, (void **) &arg1, SWIGTYPE_p_server_info, 1);
-    result =  ((arg1)->address);
+    result =  ((arg1)->addr);
     
     {
         string * resultptr;
@@ -708,7 +708,7 @@ _wrap_HLServerInfos_gamedir_get(int argc, VALUE *argv, VALUE self) {
     if ((argc < 0) || (argc > 0))
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc);
     SWIG_ConvertPtr(self, (void **) &arg1, SWIGTYPE_p_server_info, 1);
-    result =  ((arg1)->gamedir);
+    result =  ((arg1)->gdir);
     
     {
         string * resultptr;
@@ -728,7 +728,7 @@ _wrap_HLServerInfos_gamedesc_get(int argc, VALUE *argv, VALUE self) {
     if ((argc < 0) || (argc > 0))
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc);
     SWIG_ConvertPtr(self, (void **) &arg1, SWIGTYPE_p_server_info, 1);
-    result =  ((arg1)->gamedesc);
+    result =  ((arg1)->gdesc);
     
     {
         string * resultptr;
@@ -864,7 +864,7 @@ static VALUE
 _wrap_HLServer_ping(int argc, VALUE *argv, VALUE self) {
     HLServer *arg1 = (HLServer *) 0 ;
     char *arg2 ;
-    port arg3 = (port) 27015 ;
+    int arg3 = (int) 27015 ;
     int result;
     VALUE vresult = Qnil;
     
@@ -873,11 +873,7 @@ _wrap_HLServer_ping(int argc, VALUE *argv, VALUE self) {
     SWIG_ConvertPtr(self, (void **) &arg1, SWIGTYPE_p_HLServer, 1);
     arg2 = StringValuePtr(argv[0]);
     if (argc > 1) {
-        {
-            port * ptr;
-            SWIG_ConvertPtr(argv[1], (void **) &ptr, SWIGTYPE_p_port, 1);
-            if (ptr) arg3 = *ptr;
-        }
+        arg3 = NUM2INT(argv[1]);
     }
     result = (int)HLServer_ping(arg1,(char const *)arg2,arg3);
     
@@ -918,13 +914,11 @@ free_HLServer(HLServer *arg1) {
 
 static swig_type_info _swigt__p_server_info[] = {{"_p_server_info", 0, "server_info *", 0},{"_p_server_info"},{0}};
 static swig_type_info _swigt__p_HLServer[] = {{"_p_HLServer", 0, "HLServer *", 0},{"_p_HLServer"},{0}};
-static swig_type_info _swigt__p_port[] = {{"_p_port", 0, "port *", 0},{"_p_port"},{0}};
 static swig_type_info _swigt__p_string[] = {{"_p_string", 0, "string *", 0},{"_p_string"},{0}};
 
 static swig_type_info *swig_types_initial[] = {
 _swigt__p_server_info, 
 _swigt__p_HLServer, 
-_swigt__p_port, 
 _swigt__p_string, 
 0
 };
